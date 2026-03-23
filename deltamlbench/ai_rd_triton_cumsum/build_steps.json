@@ -1,0 +1,30 @@
+[
+  {
+    "type": "file",
+    "source": "requirements.txt",
+    "destination": "/root/requirements.txt"
+  },
+  {
+    "type": "shell",
+    "commands": [
+      "pip install --no-cache-dir -r /root/requirements.txt"
+    ]
+  },
+  {
+    "type": "file",
+    "source": "assets/score.py",
+    "destination": "/home/agent/score.py"
+  },
+  {
+    "type": "file",
+    "source": "assets/for_agent/solution.py",
+    "destination": "/home/agent/solution/solution.py"
+  },
+  {
+    "type": "shell",
+    "commands": [
+      "cd /home/agent/solution",
+      "echo '*.pyc' >> .gitignore"
+    ]
+  }
+]

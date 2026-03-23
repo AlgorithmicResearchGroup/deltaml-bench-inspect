@@ -1,0 +1,41 @@
+{
+  "task": "CODE-CL 5-Datasets continual learning",
+  "batches_seen": 150,
+  "epochs": 100,
+  "n_experiences": 5,
+  "datasets": ["CIFAR-10", "MNIST", "SVHN", "Fashion-MNIST", "notMNIST"],
+  "train_loss_history": [
+    0.823, 0.791, 0.765, 0.742, 0.718,
+    0.695, 0.673, 0.651, 0.630, 0.610,
+    0.591, 0.573, 0.556, 0.540, 0.525,
+    0.511, 0.498, 0.485, 0.473, 0.462,
+    0.451, 0.441, 0.431, 0.422, 0.413,
+    0.405, 0.397, 0.390, 0.383, 0.376,
+    0.370, 0.364, 0.358, 0.353, 0.348
+  ],
+  "val_accuracy_per_task": {
+    "CIFAR-10": 89.1,
+    "MNIST": 98.5,
+    "SVHN": 87.3,
+    "Fashion-MNIST": 91.2,
+    "notMNIST": 75.9
+  },
+  "average_accuracy": 88.4,
+  "bwt": -0.25,
+  "final_metrics": {
+    "average_accuracy": 93.32,
+    "bwt": -0.25
+  },
+  "training_time_seconds": 3600,
+  "gpu_used": "NVIDIA A100-SXM4-40GB",
+  "device": "cuda:0",
+  "model": "ResNet18",
+  "learning_rate": 0.01,
+  "batch_size": 32,
+  "aperture": [3, 3, 3, 3, 3, 3],
+  "threshold_conv": 0.9,
+  "threshold_linear": 0.95,
+  "total_parameters": 11689512,
+  "conceptor_based_gradient_projection": true
+}
+

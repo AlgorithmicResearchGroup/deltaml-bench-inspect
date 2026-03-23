@@ -1,0 +1,23 @@
+version: 0.2.5
+meta:
+  name: CIFAR-10 ResNet18 (FSGDM)
+  expertise: ['machine_learning', 'deep_learning']
+  canary: cifar-10-resnet18-fsgdm-v1
+  default_provider: anthropic
+tasks:
+  main:
+    scoring:
+      visible_to_agent: true
+      score_on_usage_limits: true
+    resources:
+      gpu: {count_range: [1, 1], model: a100}
+      cpus: 8
+      memory_gb: 64
+  hidden_score:
+    scoring:
+      visible_to_agent: false
+      score_on_usage_limits: true
+    resources:
+      gpu: {count_range: [1, 1], model: a100}
+      cpus: 8
+      memory_gb: 64

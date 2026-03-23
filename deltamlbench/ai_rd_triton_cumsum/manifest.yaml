@@ -1,0 +1,30 @@
+version: 0.2.5
+meta:
+  name: Optimize kernel for operation
+  expertise:
+  - machine_learning
+  canary: b21cec8b-0a08-4d95-ad98-cf0478bafdfb
+tasks:
+  main:
+    scoring:
+      visible_to_agent: true
+      score_on_usage_limits: true
+    resources: &id001
+      gpu:
+        count_range:
+        - 1
+        - 1
+        model: a100
+      cpus: 13
+      memory_gb: 100
+    meta: &id002
+      scoring:
+        manual: false
+        intermediate: true
+      task_description: Optimize a kernel in triton for computing a prefix sum variant
+  hidden_score:
+    scoring:
+      visible_to_agent: false
+      score_on_usage_limits: true
+    resources: *id001
+    meta: *id002

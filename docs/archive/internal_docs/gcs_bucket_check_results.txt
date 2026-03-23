@@ -1,0 +1,2856 @@
+================================================================================
+GCS BUCKET CHECK: benchmarking_tasks_repos
+================================================================================
+
+🔌 Connecting to GCS bucket (anonymous access)...
+
+================================================================================
+STEP 1: COUNT TASKS IN BUCKET
+================================================================================
+
+✅ Total tasks found: 54
+
+Task directories:
+    1. 5-Datasets_CODE-CL
+    2. Astock_SRL&Factors
+    3. BTAD_URD
+    4. CAT2000_SUM
+    5. CIFAR-100_PRO-DSC
+    6. CIFAR-10_ABNet-2G-R0
+    7. CIFAR-10_ResNet18_(FSGDM)
+    8. CNN
+    9. California_Housing_Prices_Binary_Diffusion
+   10. Chameleon_CoED
+   11. Digital_twin-supported_deep_learning_for_fault_diagnosis_DANN
+   12. ETTh1_(336)_Multivariate_AMD
+   13. ETTh1_(336)_Multivariate_SOFTS
+   14. ETTh1_(720)_Multivariate_SparseTSF
+   15. Electricity_(192)_CycleNet
+   16. FB15k-237_DaBR
+   17. FER2013_VGG_based
+   18. Fashion-MNIST_Continued_fraction_of_straight_lines
+   19. Fashion-MNIST_ENERGIZE
+   20. Fashion-MNIST_GECCO
+   21. Food-101_MANO-tiny
+   22. Gowalla_RLAE-DAN
+   23. HME100K_ICAL
+   24. ISTD+_RASM
+   25. ImageNet-10_DPAC
+   26. Kvasir-SEG_EMCAD
+   27. Kvasir-SEG_EffiSegNet-B5
+   28. Kvasir-SEG_Yolo-SAM_2
+   29. MIMIC-III_FLD
+   30. MM-Vet_FlashSloth-HD
+   31. MNIST_GatedGCN+
+   32. MNIST_rKAN
+   33. MalNet-Tiny_GatedGCN+
+   34. Office-31_EUDA
+   35. PDBbind_BAPULM
+   36. PeMSD4_PM-DMNet(R)
+   37. Peptides-struct_GCN+
+   38. STL-10,_40_Labels_SemiOccam
+   39. Stanford_Cars_ProMetaR
+   40. SumMe_CSTA
+   41. TXL-PBC:_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n
+   42. Tiny-ImageNet_PRO-DSC
+   43. Tiny_ImageNet_Classification_MANO-tiny
+   44. Traffic_GLinear
+   45. Training_and_validation_dataset_of_capsule_vision_2024_challenge._BiomedCLIP+PubmedBERT
+   46. UCR_Anomaly_Archive_KAN
+   47. Weather_(192)_xPatch
+   48. WiGesture_CSI-BERT
+   49. York_Urban_Dataset_DT-LSD
+   50. ZINC_NeuralWalker
+   51. ZJU-RGB-P_CSFNet-2
+   52. clintox_BiLSTM
+   53. ogbg-molhiv_GatedGCN+
+   54. ogbl-ddi_GCN_(node_embedding)
+
+================================================================================
+STEP 2: FILES AND SIZES FOR EACH TASK
+================================================================================
+
+📁 Task: 5-Datasets_CODE-CL
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                1.16 GB
+  metadata.json                                             790.00 B
+  notebook.ipynb                                           120.86 KB
+  paper.pdf                                                799.29 KB
+  repo.zip                                                 580.29 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      1.17 GB
+
+📁 Task: Astock_SRL&Factors
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               30.96 MB
+  metadata.json                                             897.00 B
+  notebook.ipynb                                            17.21 KB
+  paper.pdf                                                  1.17 MB
+  repo.zip                                                  63.77 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     95.92 MB
+
+📁 Task: BTAD_URD
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                4.90 GB
+  metadata.json                                             949.00 B
+  notebook.ipynb                                            45.97 KB
+  paper.pdf                                                 12.04 MB
+  repo.zip                                                 249.59 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      4.92 GB
+
+📁 Task: CAT2000_SUM
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              580.63 MB
+  metadata.json                                             693.00 B
+  notebook.ipynb                                           413.51 KB
+  paper.pdf                                                 46.16 MB
+  repo.zip                                                  17.38 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    644.58 MB
+
+📁 Task: CIFAR-100_PRO-DSC
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              160.65 MB
+  metadata.json                                             744.00 B
+  notebook.ipynb                                            28.56 KB
+  paper.pdf                                                 14.38 MB
+  repo.zip                                                   1.87 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    176.94 MB
+
+📁 Task: CIFAR-10_ABNet-2G-R0
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              162.15 MB
+  metadata.json                                             750.00 B
+  notebook.ipynb                                             7.56 KB
+  paper.pdf                                                  1.16 MB
+  repo.zip                                                 208.72 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    163.53 MB
+
+📁 Task: CIFAR-10_ResNet18_(FSGDM)
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              162.15 MB
+  metadata.json                                             728.00 B
+  notebook.ipynb                                            15.73 KB
+  paper.pdf                                                  2.02 MB
+  repo.zip                                                  53.38 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    164.24 MB
+
+📁 Task: CNN
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                4.84 KB
+  metadata.json                                             727.00 B
+  notebook.ipynb                                            24.23 KB
+  paper.pdf                                                424.97 KB
+  repo.zip                                                  52.98 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    507.73 KB
+
+📁 Task: California_Housing_Prices_Binary_Diffusion
+--------------------------------------------------------------------------------
+  Total files: 6
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  california_housing_prices_binary_diffusion.dockerfile         1.32 KB
+  dataset.zip                                                1.81 MB
+  metadata.json                                             998.00 B
+  notebook.ipynb                                            53.88 KB
+  paper.pdf                                                  2.00 MB
+  repo.zip                                                  53.68 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     57.54 MB
+
+📁 Task: Chameleon_CoED
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               31.28 MB
+  metadata.json                                             690.00 B
+  notebook.ipynb                                            56.65 KB
+  paper.pdf                                                  2.25 MB
+  repo.zip                                                 231.14 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    264.73 MB
+
+📁 Task: Digital_twin-supported_deep_learning_for_fault_diagnosis_DANN
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               96.39 MB
+  metadata.json                                             765.00 B
+  notebook.ipynb                                            32.13 KB
+  paper.pdf                                                548.26 KB
+  repo.zip                                                 197.99 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    294.94 MB
+
+📁 Task: ETTh1_(336)_Multivariate_AMD
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  Untitled12.ipynb                                          33.79 KB
+  dataset.zip                                              405.13 KB
+  metadata.json                                             733.00 B
+  paper.pdf                                                  2.64 MB
+  repo.zip                                                   3.68 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      6.76 MB
+
+📁 Task: ETTh1_(336)_Multivariate_SOFTS
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              103.00 MB
+  metadata.json                                             747.00 B
+  notebook.ipynb                                            27.74 KB
+  paper.pdf                                                  3.91 MB
+  repo.zip                                                   4.92 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    111.86 MB
+
+📁 Task: ETTh1_(720)_Multivariate_SparseTSF
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                3.79 MB
+  metadata.json                                             689.00 B
+  notebook.ipynb                                            47.13 KB
+  paper.pdf                                                778.39 KB
+  repo.zip                                                   1.56 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      6.15 MB
+
+📁 Task: Electricity_(192)_CycleNet
+--------------------------------------------------------------------------------
+  Total files: 4
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  metadata.json                                             741.00 B
+  notebook.ipynb                                            41.70 KB
+  paper.pdf                                                986.25 KB
+  repo.zip                                                   4.62 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      5.63 MB
+
+📁 Task: FB15k-237_DaBR
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                2.11 MB
+  metadata.json                                             911.00 B
+  notebook.ipynb                                             3.38 KB
+  paper.pdf                                                  2.02 MB
+  repo.zip                                                  31.84 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     35.98 MB
+
+📁 Task: FER2013_VGG_based
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               74.11 MB
+  metadata.json                                             686.00 B
+  notebook.ipynb                                             1.48 MB
+  paper.pdf                                                719.43 KB
+  repo.zip                                                 311.89 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    388.19 MB
+
+📁 Task: Fashion-MNIST_Continued_fraction_of_straight_lines
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               58.90 MB
+  metadata.json                                             845.00 B
+  notebook.ipynb                                           151.51 KB
+  paper.pdf                                                  1.47 MB
+  repo.zip                                                  44.59 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     60.56 MB
+
+📁 Task: Fashion-MNIST_ENERGIZE
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               58.90 MB
+  metadata.json                                             833.00 B
+  notebook.ipynb                                           170.27 KB
+  paper.pdf                                                724.01 KB
+  repo.zip                                                 700.97 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     60.46 MB
+
+📁 Task: Fashion-MNIST_GECCO
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               58.90 MB
+  metadata.json                                             828.00 B
+  notebook.ipynb                                            13.19 KB
+  paper.pdf                                                653.15 KB
+  repo.zip                                                  70.62 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     59.62 MB
+
+📁 Task: Food-101_MANO-tiny
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                4.65 GB
+  metadata.json                                             758.00 B
+  notebook.ipynb                                            42.21 KB
+  paper.pdf                                                682.71 KB
+  repo.zip                                                 479.28 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      4.65 GB
+
+📁 Task: Gowalla_RLAE-DAN
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               14.57 MB
+  metadata.json                                             711.00 B
+  notebook.ipynb                                             7.07 KB
+  paper.pdf                                                  5.21 MB
+  repo.zip                                                  29.08 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     48.86 MB
+
+📁 Task: HME100K_ICAL
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                2.11 GB
+  metadata.json                                             713.00 B
+  notebook.ipynb                                           138.07 KB
+  paper.pdf                                                685.14 KB
+  repo.zip                                                 214.05 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      2.32 GB
+
+📁 Task: ISTD+_RASM
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                2.00 GB
+  metadata.json                                             571.00 B
+  notebook.ipynb                                           591.44 KB
+  paper.pdf                                                 22.61 MB
+  repo.zip                                                  21.75 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      2.04 GB
+
+📁 Task: ImageNet-10_DPAC
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               12.11 KB
+  metadata.json                                             878.00 B
+  notebook.ipynb                                            30.81 KB
+  paper.pdf                                                770.28 KB
+  repo.zip                                                 123.70 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    937.77 KB
+
+📁 Task: Kvasir-SEG_EMCAD
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               19.07 MB
+  metadata.json                                             711.00 B
+  notebook.ipynb                                           250.30 KB
+  paper.pdf                                                  1.80 MB
+  repo.zip                                                   3.55 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     24.67 MB
+
+📁 Task: Kvasir-SEG_EffiSegNet-B5
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               19.07 MB
+  metadata.json                                              1.08 KB
+  notebook.ipynb                                           123.03 KB
+  paper.pdf                                                226.90 KB
+  repo.zip                                                  36.44 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     55.86 MB
+
+📁 Task: Kvasir-SEG_Yolo-SAM_2
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               19.07 MB
+  metadata.json                                             790.00 B
+  notebook.ipynb                                            60.71 KB
+  paper.pdf                                                657.02 KB
+  repo.zip                                                 469.56 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    489.33 MB
+
+📁 Task: MIMIC-III_FLD
+--------------------------------------------------------------------------------
+  Total files: 4
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  metadata.json                                             693.00 B
+  notebook.ipynb                                            48.42 KB
+  paper.pdf                                                645.32 KB
+  repo.zip                                                  57.86 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     58.54 MB
+
+📁 Task: MM-Vet_FlashSloth-HD
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              180.63 KB
+  metadata.json                                             766.00 B
+  notebook.ipynb                                            96.98 KB
+  paper.pdf                                                  4.14 MB
+  repo.zip                                                  20.59 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     25.00 MB
+
+📁 Task: MNIST_GatedGCN+
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               22.02 MB
+  metadata.json                                             762.00 B
+  notebook.ipynb                                           958.24 KB
+  paper.pdf                                                  1.40 MB
+  repo.zip                                                 695.47 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     25.04 MB
+
+📁 Task: MNIST_rKAN
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  cnn.ipynb                                                 88.70 KB
+  dataset.zip                                               63.46 MB
+  metadata.json                                             597.00 B
+  paper.pdf                                                752.04 KB
+  repo.zip                                                 467.39 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     64.74 MB
+
+📁 Task: MalNet-Tiny_GatedGCN+
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               75.44 MB
+  metadata.json                                             768.00 B
+  notebook.ipynb                                           958.24 KB
+  paper.pdf                                                  1.40 MB
+  repo.zip                                                 695.47 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     78.45 MB
+
+📁 Task: Office-31_EUDA
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               76.20 MB
+  metadata.json                                             716.00 B
+  notebook.ipynb                                           281.70 KB
+  paper.pdf                                                  6.52 MB
+  repo.zip                                                  11.81 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     94.81 MB
+
+📁 Task: PDBbind_BAPULM
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              231.90 KB
+  metadata.json                                             658.00 B
+  notebook.ipynb                                            45.80 KB
+  paper.pdf                                                  3.30 MB
+  repo.zip                                                 503.10 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      4.07 MB
+
+📁 Task: PeMSD4_PM-DMNet(R)
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              136.58 MB
+  metadata.json                                             856.00 B
+  notebook.ipynb                                            34.32 KB
+  paper.pdf                                                  3.50 MB
+  repo.zip                                                 114.91 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    255.03 MB
+
+📁 Task: Peptides-struct_GCN+
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                6.07 MB
+  metadata.json                                             760.00 B
+  notebook.ipynb                                           958.24 KB
+  paper.pdf                                                  1.40 MB
+  repo.zip                                                 695.48 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      9.09 MB
+
+📁 Task: STL-10,_40_Labels_SemiOccam
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                2.44 GB
+  metadata.json                                             704.00 B
+  notebook.ipynb                                            31.94 KB
+  paper.pdf                                                  3.22 MB
+  repo.zip                                                 737.32 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      2.44 GB
+
+📁 Task: Stanford_Cars_ProMetaR
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                1.83 GB
+  metadata.json                                             629.00 B
+  notebook.ipynb                                            92.34 KB
+  paper.pdf                                                  1.24 MB
+  repo.zip                                                   5.74 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      1.84 GB
+
+📁 Task: SumMe_CSTA
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               21.35 MB
+  metadata.json                                             748.00 B
+  notebook.ipynb                                           240.90 KB
+  paper.pdf                                                  4.43 MB
+  repo.zip                                                 439.04 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     26.44 MB
+
+📁 Task: TXL-PBC:_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               42.30 MB
+  metadata.json                                             763.00 B
+  notebook.ipynb                                            32.87 KB
+  paper.pdf                                                  1.06 MB
+  repo.zip                                                 133.01 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    176.41 MB
+
+📁 Task: Tiny-ImageNet_PRO-DSC
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              284.94 MB
+  metadata.json                                             752.00 B
+  notebook.ipynb                                            28.56 KB
+  paper.pdf                                                 14.38 MB
+  repo.zip                                                   1.87 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    301.22 MB
+
+📁 Task: Tiny_ImageNet_Classification_MANO-tiny
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  Linear_Attention_with_Global_Context_A_Multipole_Attention_Mechanism_for_Vision_and_Physics.ipynb        42.21 KB
+  dataset.zip                                              284.94 MB
+  metadata.json                                             768.00 B
+  paper.pdf                                                682.71 KB
+  repo.zip                                                 369.58 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    286.01 MB
+
+📁 Task: Traffic_GLinear
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              395.87 KB
+  metadata.json                                             733.00 B
+  notebook.ipynb                                           116.63 KB
+  paper.pdf                                                683.48 KB
+  repo.zip                                                 107.29 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    108.46 MB
+
+📁 Task: Training_and_validation_dataset_of_capsule_vision_2024_challenge._BiomedCLIP+PubmedBERT
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              383.57 MB
+  metadata.json                                             862.00 B
+  notebook.ipynb                                           105.25 KB
+  paper.pdf                                                  1.37 MB
+  repo.zip                                                  18.67 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    403.72 MB
+
+📁 Task: UCR_Anomaly_Archive_KAN
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              166.98 MB
+  metadata.json                                             679.00 B
+  notebook.ipynb                                           969.59 KB
+  paper.pdf                                                  1.49 MB
+  repo.zip                                                 138.66 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    169.55 MB
+
+📁 Task: Weather_(192)_xPatch
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              338.64 MB
+  metadata.json                                             751.00 B
+  notebook.ipynb                                            96.63 KB
+  paper.pdf                                                  1.16 MB
+  repo.zip                                                  10.32 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    350.21 MB
+
+📁 Task: WiGesture_CSI-BERT
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               25.25 MB
+  metadata.json                                             725.00 B
+  notebook.ipynb                                            41.19 KB
+  paper.pdf                                                  1.37 MB
+  repo.zip                                                  51.79 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     78.45 MB
+
+📁 Task: York_Urban_Dataset_DT-LSD
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                1.68 GB
+  metadata.json                                             763.00 B
+  notebook.ipynb                                           586.12 KB
+  paper.pdf                                                  4.31 MB
+  repo.zip                                                   9.67 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      1.69 GB
+
+📁 Task: ZINC_NeuralWalker
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               44.49 MB
+  metadata.json                                             668.00 B
+  notebook.ipynb                                           368.39 KB
+  paper.pdf                                                665.81 KB
+  repo.zip                                                  53.51 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     99.01 MB
+
+📁 Task: ZJU-RGB-P_CSFNet-2
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                              281.87 MB
+  metadata.json                                             850.00 B
+  notebook.ipynb                                           364.90 KB
+  paper.pdf                                                  6.97 MB
+  repo.zip                                                  48.40 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    337.59 MB
+
+📁 Task: clintox_BiLSTM
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               19.40 KB
+  metadata.json                                             654.00 B
+  notebook.ipynb                                            90.76 KB
+  paper.pdf                                                360.06 KB
+  repo.zip                                                 159.04 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                    629.90 KB
+
+📁 Task: ogbg-molhiv_GatedGCN+
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                                1.97 MB
+  metadata.json                                              1.08 KB
+  notebook.ipynb                                           958.24 KB
+  paper.pdf                                                  1.40 MB
+  repo.zip                                                 695.47 KB
+  -------------------------------------------------- ---------------
+  TOTAL                                                      4.98 MB
+
+📁 Task: ogbl-ddi_GCN_(node_embedding)
+--------------------------------------------------------------------------------
+  Total files: 5
+
+  Filename                                                      Size
+  -------------------------------------------------- ---------------
+  dataset.zip                                               44.29 MB
+  metadata.json                                              1.07 KB
+  notebook.ipynb                                            54.43 KB
+  paper.pdf                                                716.90 KB
+  repo.zip                                                   3.58 MB
+  -------------------------------------------------- ---------------
+  TOTAL                                                     48.63 MB
+
+================================================================================
+STEP 3: TASK NAME vs METADATA.JSON VERIFICATION
+================================================================================
+
+⚠️  MANUAL REVIEW REQUIRED - Check if task names match metadata content
+
+
+================================================================================
+📋 TASK: 5-Datasets_CODE-CL
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "5-Datasets",
+  "model_name": "CODE-CL",
+  "paper_title": "CODE-CL: Conceptor-Based Gradient Projection for Deep Continual Learning",
+  "paper_url": "https://arxiv.org/abs/2411.15235v2",
+  "code_links": [],
+  "metrics": {
+    "Average Accuracy": "93.32",
+    "BWT": "-0.25"
+  },
+  "table_metrics": {
+    "Average Accuracy": "93.32",
+    "BWT": "-0.25"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: CODE-CL: Conceptor-Based Gradient Projection for Deep Continual Learning\n    Codebase: https://github.com/mapolinario94/CODE-CL\n\n    Improve the CODE-CL model on the 5-Datasets dataset. The result\n    should improve on the following metrics: {'Average Accuracy': '93.32', 'BWT': '-0.25'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: 5-Datasets
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task '5-Datasets_CODE-CL'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Astock_SRL&Factors
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Astock",
+  "model_name": "SRL&Factors",
+  "model_links": [],
+  "paper_title": "FinReport: Explainable Stock Earnings Forecasting via News Factor Analyzing Model",
+  "paper_url": "https://arxiv.org/abs/2403.02647v1",
+  "metrics": {
+    "Accuray": "69.48",
+    "F1-score": "69.28",
+    "Precision": "69.54",
+    "Recall": "69.41"
+  },
+  "table_metrics": {
+    "Accuray": "69.48",
+    "F1-score": "69.28",
+    "Precision": "69.54",
+    "Recall": "69.41"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: FinReport: Explainable Stock Earnings Forecasting via News Factor Analyzing Model\nCodebase: Repository not available\n\nImprove the SRL&Factors model on the Astock dataset. The result should improve on the following metrics: {'Accuray': '69.48', 'F1-score': '69.28', 'Precision': '69.54', 'Recall': '69.41'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Astock
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Astock_SRL&Factors'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: BTAD_URD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "BTAD",
+  "model_name": "URD",
+  "model_links": [],
+  "paper_title": "Unlocking the Potential of Reverse Distillation for Anomaly Detection",
+  "paper_url": "https://arxiv.org/abs/2412.07579v1",
+  "metrics": {
+    "Detection AUROC": "93.9",
+    "Segmentation AP": "65.2",
+    "Segmentation AUPRO": "78.5",
+    "Segmentation AUROC": "98.1"
+  },
+  "table_metrics": {
+    "Detection AUROC": "93.9",
+    "Segmentation AP": "65.2",
+    "Segmentation AUPRO": "78.5",
+    "Segmentation AUROC": "98.1"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Unlocking the Potential of Reverse Distillation for Anomaly Detection\nCodebase: Repository not available\n\nImprove the URD model on the BTAD dataset. The result should improve on the following metrics: {'Detection AUROC': '93.9', 'Segmentation AP': '65.2', 'Segmentation AUPRO': '78.5', 'Segmentation AUROC': '98.1'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: BTAD
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'BTAD_URD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: CAT2000_SUM
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "CAT2000",
+  "model_name": "SUM",
+  "model_links": [],
+  "paper_title": "SUM: Saliency Unification through Mamba for Visual Attention Modeling",
+  "paper_url": "https://arxiv.org/abs/2406.17815v2",
+  "metrics": {
+    "AUC": "0.888",
+    "NSS": "2.423"
+  },
+  "table_metrics": {
+    "AUC": "0.888",
+    "NSS": "2.423"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: SUM: Saliency Unification through Mamba for Visual Attention Modeling\nCodebase: Repository not available\n\nImprove the SUM model on the CAT2000 dataset. The result should improve on the following metrics: {'AUC': '0.888', 'NSS': '2.423'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: CAT2000
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'CAT2000_SUM'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: CIFAR-100_PRO-DSC
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "CIFAR-100",
+  "model_name": "PRO-DSC",
+  "paper_title": "Exploring a Principled Framework for Deep Subspace Clustering",
+  "paper_url": "https://arxiv.org/abs/2503.17288v1",
+  "code_links": [],
+  "metrics": {
+    "Accuracy": "0.773",
+    "NMI": "0.824"
+  },
+  "table_metrics": {
+    "Accuracy": "0.773",
+    "NMI": "0.824"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: Exploring a Principled Framework for Deep Subspace Clustering\n    Codebase: https://github.com/mengxianghan123/PRO-DSC\n\n    Improve the PRO-DSC model on the CIFAR-100 dataset. The result\n    should improve on the following metrics: {'Accuracy': '0.773', 'NMI': '0.824'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: CIFAR-100
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'CIFAR-100_PRO-DSC'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: CIFAR-10_ABNet-2G-R0
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "CIFAR-10",
+  "model_name": "ABNet-2G-R0",
+  "paper_title": "ANDHRA Bandersnatch: Training Neural Networks to Predict Parallel Realities",
+  "paper_url": "https://arxiv.org/abs/2411.19213v1",
+  "code_links": [],
+  "metrics": {
+    "Percentage correct": "94.118"
+  },
+  "table_metrics": {
+    "Percentage correct": "94.118"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: ANDHRA Bandersnatch: Training Neural Networks to Predict Parallel Realities\n    Codebase: https://github.com/dvssajay/New_World\n\n    Improve the ABNet-2G-R0 model on the CIFAR-10 dataset. The result\n    should improve on the following metrics: {'Percentage correct': '94.118'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: CIFAR-10
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'CIFAR-10_ABNet-2G-R0'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: CIFAR-10_ResNet18_(FSGDM)
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "CIFAR-10",
+  "model_name": "ResNet18 (FSGDM)",
+  "model_links": [],
+  "paper_title": "On the Performance Analysis of Momentum Method: A Frequency Domain Perspective",
+  "paper_url": "https://arxiv.org/abs/2411.19671v6",
+  "metrics": {
+    "Percentage correct": "95.66"
+  },
+  "table_metrics": {
+    "Percentage correct": "95.66"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: On the Performance Analysis of Momentum Method: A Frequency Domain Perspective\nCodebase: Repository not available\n\nImprove the ResNet18 (FSGDM) model on the CIFAR-10 dataset. The result should improve on the following metrics: {'Percentage correct': '95.66'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: CIFAR-10
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'CIFAR-10_ResNet18_(FSGDM)'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: CNN
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "CNN / Daily Mail",
+  "model_name": "SigExt",
+  "paper_title": "SigExt: Signal Extraction for Text Summarization",
+  "paper_url": "https://arxiv.org/abs/2401.12350",
+  "code_links": "https://github.com/example/SigExt",
+  "metrics": {
+    "ROUGE-1": "42.3",
+    "ROUGE-2": "19.8",
+    "ROUGE-L": "39.1",
+    "BLEU": "35.2"
+  },
+  "table_metrics": {
+    "ROUGE-1": "42.3",
+    "ROUGE-2": "19.8",
+    "ROUGE-L": "39.1",
+    "BLEU": "35.2",
+    "F1": "38.7",
+    "Precision": "41.1",
+    "Recall": "36.4"
+  },
+  "prompts": [
+    "Improve the SigExt model on CNN/Daily Mail dataset. Current ROUGE-1 is 42.3% and ROUGE-L is 39.1%. Focus on enhancing signal extraction for better text summarization performance."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: CNN / Daily Mail
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'CNN'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: California_Housing_Prices_Binary_Diffusion
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "California Housing Prices",
+  "model_name": "Binary Diffusion",
+  "model_links": [],
+  "paper_title": "Tabular Data Generation using Binary Diffusion",
+  "paper_url": "https://arxiv.org/abs/2409.13882v2",
+  "metrics": {
+    "DT Mean Squared Error": "0.45",
+    "LR Mean Squared Error": "0.55",
+    "Parameters(M)": "1.5",
+    "RF Mean Squared Error": "0.39"
+  },
+  "table_metrics": {
+    "DT Mean Squared Error": "0.45",
+    "LR Mean Squared Error": "0.55",
+    "Parameters(M)": "1.5",
+    "RF Mean Squared Error": "0.39"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Tabular Data Generation using Binary Diffusion\nCodebase: Repository not available\n\nImprove the Binary Diffusion model on the California Housing Prices dataset. The result should improve on the following metrics: {'DT Mean Squared Error': '0.45', 'LR Mean Squared Error': '0.55', 'Parameters(M)': '1.5', 'RF Mean Squared Error': '0.39'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: California Housing Prices
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'California_Housing_Prices_Binary_Diffusion'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Chameleon_CoED
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Chameleon",
+  "model_name": "CoED",
+  "model_links": [],
+  "paper_title": "Improving Graph Neural Networks by Learning Continuous Edge Directions",
+  "paper_url": "https://arxiv.org/abs/2410.14109v1",
+  "metrics": {
+    "Accuracy": "79.69\u00b11.35"
+  },
+  "table_metrics": {
+    "Accuracy": "79.69\u00b11.35"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Improving Graph Neural Networks by Learning Continuous Edge Directions\nCodebase: Repository not available\n\nImprove the CoED model on the Chameleon dataset. The result should improve on the following metrics: {'Accuracy': '79.69\u00b11.35'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Chameleon
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Chameleon_CoED'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Digital_twin-supported_deep_learning_for_fault_diagnosis_DANN
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Digital twin-supported deep learning for fault diagnosis",
+  "model_name": "DANN",
+  "model_links": [],
+  "paper_title": "A domain adaptation neural network for digital twin-supported fault diagnosis",
+  "paper_url": "https://arxiv.org/abs/2505.21046v1",
+  "metrics": {
+    "Accuray": "80.22"
+  },
+  "table_metrics": {
+    "Accuray": "80.22"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: A domain adaptation neural network for digital twin-supported fault diagnosis\nCodebase: Repository not available\n\nImprove the DANN model on the Digital twin-supported deep learning for fault diagnosis dataset. The result should improve on the following metrics: {'Accuray': '80.22'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Digital twin-supported deep learning for fault diagnosis
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Digital_twin-supported_deep_learning_for_fault_diagnosis_DANN'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ETTh1_(336)_Multivariate_AMD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ETTh1 (336) Multivariate",
+  "model_name": "AMD",
+  "model_links": [],
+  "paper_title": "Adaptive Multi-Scale Decomposition Framework for Time Series Forecasting",
+  "paper_url": "https://arxiv.org/abs/2406.03751v1",
+  "metrics": {
+    "MAE": "0.427",
+    "MSE": "0.418"
+  },
+  "table_metrics": {
+    "MAE": "0.427",
+    "MSE": "0.418"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Adaptive Multi-Scale Decomposition Framework for Time Series Forecasting\nCodebase: Repository not available\n\nImprove the AMD model on the ETTh1 (336) Multivariate dataset. The result should improve on the following metrics: {'MAE': '0.427', 'MSE': '0.418'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ETTh1 (336) Multivariate
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ETTh1_(336)_Multivariate_AMD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ETTh1_(336)_Multivariate_SOFTS
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ETTh1 (336) Multivariate",
+  "model_name": "SOFTS",
+  "model_links": [],
+  "paper_title": "SOFTS: Efficient Multivariate Time Series Forecasting with Series-Core Fusion",
+  "paper_url": "https://arxiv.org/abs/2404.14197v3",
+  "metrics": {
+    "MAE": "0.452",
+    "MSE": "0.480"
+  },
+  "table_metrics": {
+    "MAE": "0.452",
+    "MSE": "0.480"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: SOFTS: Efficient Multivariate Time Series Forecasting with Series-Core Fusion\nCodebase: Repository not available\n\nImprove the SOFTS model on the ETTh1 (336) Multivariate dataset. The result should improve on the following metrics: {'MAE': '0.452', 'MSE': '0.480'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ETTh1 (336) Multivariate
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ETTh1_(336)_Multivariate_SOFTS'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ETTh1_(720)_Multivariate_SparseTSF
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ETTh1 (720) Multivariate",
+  "model_name": "SparseTSF",
+  "model_links": [],
+  "paper_title": "SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters",
+  "paper_url": "https://arxiv.org/abs/2405.00946v2",
+  "metrics": {
+    "MSE": "0.426"
+  },
+  "table_metrics": {
+    "MSE": "0.426"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters\nCodebase: Repository not available\n\nImprove the SparseTSF model on the ETTh1 (720) Multivariate dataset. The result should improve on the following metrics: {'MSE': '0.426'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ETTh1 (720) Multivariate
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ETTh1_(720)_Multivariate_SparseTSF'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Electricity_(192)_CycleNet
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Electricity (192)",
+  "model_name": "CycleNet",
+  "model_links": [],
+  "paper_title": "CycleNet: Enhancing Time Series Forecasting through Modeling Periodic Patterns",
+  "paper_url": "https://arxiv.org/abs/2409.18479v2",
+  "metrics": {
+    "MAE": "0.237",
+    "MSE": "0.144"
+  },
+  "table_metrics": {
+    "MAE": "0.237",
+    "MSE": "0.144"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: CycleNet: Enhancing Time Series Forecasting through Modeling Periodic Patterns\nCodebase: Repository not available\n\nImprove the CycleNet model on the Electricity (192) dataset. The result should improve on the following metrics: {'MAE': '0.237', 'MSE': '0.144'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Electricity (192)
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Electricity_(192)_CycleNet'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: FB15k-237_DaBR
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "FB15k-237",
+  "model_name": "DaBR",
+  "model_links": [],
+  "paper_title": "Distance-Adaptive Quaternion Knowledge Graph Embedding with Bidirectional Rotation",
+  "paper_url": "https://arxiv.org/abs/2412.04076v2",
+  "metrics": {
+    "Hits@1": "0.247",
+    "Hits@10": "0.572",
+    "Hits@3": "0.410",
+    "MR": "83",
+    "MRR": "0.373"
+  },
+  "table_metrics": {
+    "Hits@1": "0.247",
+    "Hits@10": "0.572",
+    "Hits@3": "0.410",
+    "MR": "83",
+    "MRR": "0.373"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Distance-Adaptive Quaternion Knowledge Graph Embedding with Bidirectional Rotation\nCodebase: Repository not available\n\nImprove the DaBR model on the FB15k-237 dataset. The result should improve on the following metrics: {'Hits@1': '0.247', 'Hits@10': '0.572', 'Hits@3': '0.410', 'MR': '83', 'MRR': '0.373'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: FB15k-237
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'FB15k-237_DaBR'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: FER2013_VGG_based
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "FER2013",
+  "model_name": "VGG based",
+  "model_links": [],
+  "paper_title": "IdentiFace : A VGG Based Multimodal Facial Biometric System",
+  "paper_url": "https://arxiv.org/abs/2401.01227v2",
+  "metrics": {
+    "5-class test accuracy": "66.13%"
+  },
+  "table_metrics": {
+    "5-class test accuracy": "66.13%"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: IdentiFace : A VGG Based Multimodal Facial Biometric System\nCodebase: Repository not available\n\nImprove the VGG based model on the FER2013 dataset. The result should improve on the following metrics: {'5-class test accuracy': '66.13%'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: FER2013
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'FER2013_VGG_based'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Fashion-MNIST_Continued_fraction_of_straight_lines
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Fashion-MNIST",
+  "model_name": "Continued fraction of straight lines",
+  "model_links": [],
+  "paper_title": "Real-valued continued fraction of straight lines",
+  "paper_url": "https://arxiv.org/abs/2412.16191v1",
+  "metrics": {
+    "Accuracy": "84.12",
+    "NMI": "74.4",
+    "Trainable Parameters": "7870"
+  },
+  "table_metrics": {
+    "Accuracy": "84.12",
+    "NMI": "74.4",
+    "Trainable Parameters": "7870"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Real-valued continued fraction of straight lines\nCodebase: Repository not available\n\nImprove the Continued fraction of straight lines model on the Fashion-MNIST dataset. The result should improve on the following metrics: {'Accuracy': '84.12', 'NMI': '74.4', 'Trainable Parameters': '7870'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Fashion-MNIST
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Fashion-MNIST_Continued_fraction_of_straight_lines'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Fashion-MNIST_ENERGIZE
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Fashion-MNIST",
+  "model_name": "ENERGIZE",
+  "model_links": [],
+  "paper_title": "Towards Physical Plausibility in Neuroevolution Systems",
+  "paper_url": "https://arxiv.org/abs/2401.17733v1",
+  "metrics": {
+    "Accuracy": "0.902",
+    "Percentage error": "9.8",
+    "Power consumption": "71.92"
+  },
+  "table_metrics": {
+    "Accuracy": "0.902",
+    "Percentage error": "9.8",
+    "Power consumption": "71.92"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Towards Physical Plausibility in Neuroevolution Systems\nCodebase: Repository not available\n\nImprove the ENERGIZE model on the Fashion-MNIST dataset. The result should improve on the following metrics: {'Accuracy': '0.902', 'Percentage error': '9.8', 'Power consumption': '71.92'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Fashion-MNIST
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Fashion-MNIST_ENERGIZE'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Fashion-MNIST_GECCO
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Fashion-MNIST",
+  "model_name": "GECCO",
+  "paper_title": "A Single Graph Convolution Is All You Need: Efficient Grayscale Image Classification",
+  "paper_url": "https://arxiv.org/abs/2402.00564v6",
+  "code_links": [],
+  "metrics": {
+    "Percentage error": "11.91",
+    "Accuracy": "88.09"
+  },
+  "table_metrics": {
+    "Percentage error": "11.91",
+    "Accuracy": "88.09"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: A Single Graph Convolution Is All You Need: Efficient Grayscale Image Classification\n    Codebase: https://github.com/geccoproject/gecco\n\n    Improve the GECCO model on the Fashion-MNIST dataset. The result\n    should improve on the following metrics: {'Percentage error': '11.91', 'Accuracy': '88.09'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Fashion-MNIST
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Fashion-MNIST_GECCO'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Food-101_MANO-tiny
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Food-101",
+  "model_name": "MANO-tiny",
+  "paper_title": "Linear Attention with Global Context: A Multipole Attention Mechanism for Vision and Physics",
+  "paper_url": "https://arxiv.org/abs/2507.02748",
+  "code_links": [],
+  "metrics": {
+    "Accuracy (%)": "82.48"
+  },
+  "table_metrics": {
+    "Accuracy (%)": "82.48"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: Linear Attention with Global Context: A Multipole Attention Mechanism for Vision and Physics\n    Codebase: https://github.com/AlexColagrande/MANO\n\n    Improve the MANO-tiny model on the Food-101 dataset. The result\n    should improve on the following metrics: {'Accuracy (%)': '82.48'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Food-101
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Food-101_MANO-tiny'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Gowalla_RLAE-DAN
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Gowalla",
+  "model_name": "RLAE-DAN",
+  "model_links": [],
+  "paper_title": "Why is Normalization Necessary for Linear Recommenders?",
+  "paper_url": "https://arxiv.org/abs/2504.05805v2",
+  "metrics": {
+    "Recall@20": "0.1922",
+    "nDCG@20": "0.1605"
+  },
+  "table_metrics": {
+    "Recall@20": "0.1922",
+    "nDCG@20": "0.1605"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Why is Normalization Necessary for Linear Recommenders?\nCodebase: Repository not available\n\nImprove the RLAE-DAN model on the Gowalla dataset. The result should improve on the following metrics: {'Recall@20': '0.1922', 'nDCG@20': '0.1605'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Gowalla
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Gowalla_RLAE-DAN'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: HME100K_ICAL
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "HME100K",
+  "model_name": "ICAL",
+  "model_links": [],
+  "paper_title": "ICAL: Implicit Character-Aided Learning for Enhanced Handwritten Mathematical Expression Recognition",
+  "paper_url": "https://arxiv.org/abs/2405.09032v4",
+  "metrics": {
+    "ExpRate": "69.06"
+  },
+  "table_metrics": {
+    "ExpRate": "69.06"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: ICAL: Implicit Character-Aided Learning for Enhanced Handwritten Mathematical Expression Recognition\nCodebase: Repository not available\n\nImprove the ICAL model on the HME100K dataset. The result should improve on the following metrics: {'ExpRate': '69.06'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: HME100K
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'HME100K_ICAL'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ISTD+_RASM
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ISTD+",
+  "model_name": "RASM",
+  "model_links": [],
+  "paper_title": "Regional Attention for Shadow Removal",
+  "paper_url": "https://arxiv.org/abs/2411.14201v1",
+  "metrics": {
+    "RMSE": "2.53"
+  },
+  "table_metrics": {
+    "RMSE": "2.53"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Regional Attention for Shadow Removal\nCodebase: Repository not available\n\nImprove the RASM model on the ISTD+ dataset. The result should improve on the following metrics: {'RMSE': '2.53'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ISTD+
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ISTD+_RASM'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ImageNet-10_DPAC
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ImageNet-10",
+  "model_name": "DPAC",
+  "paper_title": "Deep Online Probability Aggregation Clustering",
+  "paper_url": "https://arxiv.org/abs/2407.05246v2",
+  "code_links": [],
+  "metrics": {
+    "Accuracy": "0.97",
+    "NMI": "0.925",
+    "ARI": "0.935",
+    "Backbone": "ResNet-34"
+  },
+  "table_metrics": {
+    "Accuracy": "0.97",
+    "NMI": "0.925",
+    "ARI": "0.935",
+    "Backbone": "ResNet-34"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: Deep Online Probability Aggregation Clustering\n    Codebase: https://github.com/aomandechenai/deep-probability-aggregation-clustering\n\n    Improve the DPAC model on the ImageNet-10 dataset. The result\n    should improve on the following metrics: {'Accuracy': '0.97', 'NMI': '0.925', 'ARI': '0.935', 'Backbone': 'ResNet-34'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ImageNet-10
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ImageNet-10_DPAC'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Kvasir-SEG_EMCAD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Kvasir-SEG",
+  "model_name": "EMCAD",
+  "model_links": [],
+  "paper_title": "EMCAD: Efficient Multi-scale Convolutional Attention Decoding for Medical Image Segmentation",
+  "paper_url": "https://arxiv.org/abs/2405.06880v1",
+  "metrics": {
+    "mean Dice": "0.928"
+  },
+  "table_metrics": {
+    "mean Dice": "0.928"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: EMCAD: Efficient Multi-scale Convolutional Attention Decoding for Medical Image Segmentation\nCodebase: Repository not available\n\nImprove the EMCAD model on the Kvasir-SEG dataset. The result should improve on the following metrics: {'mean Dice': '0.928'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Kvasir-SEG
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Kvasir-SEG_EMCAD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Kvasir-SEG_EffiSegNet-B5
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Kvasir-SEG",
+  "model_name": "EffiSegNet-B5",
+  "paper_title": "EffiSegNet: Gastrointestinal Polyp Segmentation through a Pre-Trained EfficientNet-based Network with a Simplified Decoder",
+  "paper_url": "https://arxiv.org/abs/2407.16298v1",
+  "code_links": [],
+  "metrics": {
+    "mean Dice": "0.9488",
+    "mIoU": "0.9065",
+    "F-measure": "0.9513",
+    "Precision": "0.9713",
+    "Recall": "0.9321"
+  },
+  "table_metrics": {
+    "mean Dice": "0.9488",
+    "mIoU": "0.9065",
+    "F-measure": "0.9513",
+    "Precision": "0.9713",
+    "Recall": "0.9321"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: EffiSegNet: Gastrointestinal Polyp Segmentation through a Pre-Trained EfficientNet-based Network with a Simplified Decoder\n    Codebase: https://github.com/ivezakis/effisegnet\n\n    Improve the EffiSegNet-B5 model on the Kvasir-SEG dataset. The result\n    should improve on the following metrics: {'mean Dice': '0.9488', 'mIoU': '0.9065', 'F-measure': '0.9513', 'Precision': '0.9713', 'Recall': '0.9321'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Kvasir-SEG
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Kvasir-SEG_EffiSegNet-B5'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Kvasir-SEG_Yolo-SAM_2
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Kvasir-SEG",
+  "model_name": "Yolo-SAM 2",
+  "paper_title": "Self-Prompting Polyp Segmentation in Colonoscopy using Hybrid Yolo-SAM 2 Model",
+  "paper_url": "https://arxiv.org/abs/2409.09484v1",
+  "code_links": [],
+  "metrics": {
+    "mean Dice": "0.866",
+    "mIoU": "0.764"
+  },
+  "table_metrics": {
+    "mean Dice": "0.866",
+    "mIoU": "0.764"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: Self-Prompting Polyp Segmentation in Colonoscopy using Hybrid Yolo-SAM 2 Model\n    Codebase: https://github.com/sajjad-sh33/yolo_sam2\n\n    Improve the Yolo-SAM 2 model on the Kvasir-SEG dataset. The result\n    should improve on the following metrics: {'mean Dice': '0.866', 'mIoU': '0.764'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Kvasir-SEG
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Kvasir-SEG_Yolo-SAM_2'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: MIMIC-III_FLD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "MIMIC-III",
+  "model_name": "FLD",
+  "model_links": [],
+  "paper_title": "Functional Latent Dynamics for Irregularly Sampled Time Series Forecasting",
+  "paper_url": "https://arxiv.org/abs/2405.03582v2",
+  "metrics": {
+    "MSE": "0.444  \u00b1 0.027"
+  },
+  "table_metrics": {
+    "MSE": "0.444  \u00b1 0.027"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Functional Latent Dynamics for Irregularly Sampled Time Series Forecasting\nCodebase: Repository not available\n\nImprove the FLD model on the MIMIC-III dataset. The result should improve on the following metrics: {'MSE': '0.444  \u00b1 0.027'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: MIMIC-III
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'MIMIC-III_FLD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: MM-Vet_FlashSloth-HD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "MM-Vet",
+  "model_name": "FlashSloth",
+  "model_links": [],
+  "paper_title": "FlashSloth: Lightning Multimodal Large Language Models via Embedded Visual Compression",
+  "paper_url": "https://arxiv.org/abs/2412.04317v1",
+  "metrics": {
+    "GPT-4 score": "41.9",
+    "Params": "3.2B"
+  },
+  "table_metrics": {
+    "GPT-4 score": "41.9",
+    "Params": "3.2B"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: FlashSloth: Lightning Multimodal Large Language Models via Embedded Visual Compression\nCodebase: Repository not available\n\nImprove the FlashSloth model on the MM-Vet dataset. The result should improve on the following metrics: {'GPT-4 score': '41.9', 'Params': '3.2B'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: MM-Vet
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'MM-Vet_FlashSloth-HD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: MNIST_GatedGCN+
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "MNIST",
+  "model_name": "GatedGCN+",
+  "model_links": [],
+  "paper_title": "Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence",
+  "paper_url": "https://arxiv.org/abs/2502.09263v1",
+  "metrics": {
+    "Accuracy": "98.712 \u00b1 0.137"
+  },
+  "table_metrics": {
+    "Accuracy": "98.712 \u00b1 0.137"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence\nCodebase: Repository not available\n\nImprove the GatedGCN+ model on the MNIST dataset. The result should improve on the following metrics: {'Accuracy': '98.712 \u00b1 0.137'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: MNIST
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'MNIST_GatedGCN+'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: MNIST_rKAN
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "MNIST",
+  "model_name": "rKAN",
+  "model_links": [],
+  "paper_title": "rKAN: Rational Kolmogorov-Arnold Networks",
+  "paper_url": "https://arxiv.org/abs/2406.14495v1",
+  "metrics": {
+    "Accuracy": "99.293"
+  },
+  "table_metrics": {
+    "Accuracy": "99.293"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: rKAN: Rational Kolmogorov-Arnold Networks\nCodebase: Repository not available\n\nImprove the rKAN model on the MNIST dataset. The result should improve on the following metrics: {'Accuracy': '99.293'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: MNIST
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'MNIST_rKAN'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: MalNet-Tiny_GatedGCN+
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "MalNet-Tiny",
+  "model_name": "GatedGCN+",
+  "model_links": [],
+  "paper_title": "Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence",
+  "paper_url": "https://arxiv.org/abs/2502.09263v1",
+  "metrics": {
+    "Accuracy": "94.600\u00b10.570"
+  },
+  "table_metrics": {
+    "Accuracy": "94.600\u00b10.570"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence\nCodebase: Repository not available\n\nImprove the GatedGCN+ model on the MalNet-Tiny dataset. The result should improve on the following metrics: {'Accuracy': '94.600\u00b10.570'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: MalNet-Tiny
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'MalNet-Tiny_GatedGCN+'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Office-31_EUDA
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Office-31",
+  "model_name": "EUDA",
+  "paper_title": "EUDA: An Efficient Unsupervised Domain Adaptation via Self-Supervised Vision Transformer",
+  "paper_url": "https://arxiv.org/abs/2407.21311v1",
+  "code_links": [],
+  "metrics": {
+    "Accuracy": "92"
+  },
+  "table_metrics": {
+    "Accuracy": "92"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: EUDA: An Efficient Unsupervised Domain Adaptation via Self-Supervised Vision Transformer\n    Codebase: https://github.com/a-abedi/euda\n\n    Improve the EUDA model on the Office-31 dataset. The result\n    should improve on the following metrics: {'Accuracy': '92'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Office-31
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Office-31_EUDA'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: PDBbind_BAPULM
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "PDBbind",
+  "model_name": "BAPULM",
+  "model_links": [],
+  "paper_title": "BAPULM: Binding Affinity Prediction using Language Models",
+  "paper_url": "https://arxiv.org/abs/2411.04150v1",
+  "metrics": {
+    "RMSE": "0.898\u00b10.0172"
+  },
+  "table_metrics": {
+    "RMSE": "0.898\u00b10.0172"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: BAPULM: Binding Affinity Prediction using Language Models\nCodebase: Repository not available\n\nImprove the BAPULM model on the PDBbind dataset. The result should improve on the following metrics: {'RMSE': '0.898\u00b10.0172'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: PDBbind
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'PDBbind_BAPULM'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: PeMSD4_PM-DMNet(R)
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "PeMSD4",
+  "model_name": "PM-DMNet(R)",
+  "model_links": [],
+  "paper_title": "Pattern-Matching Dynamic Memory Network for Dual-Mode Traffic Prediction",
+  "paper_url": "https://arxiv.org/abs/2408.07100v1",
+  "metrics": {
+    "12 steps MAE": "18.37",
+    "12 steps MAPE": "12.01",
+    "12 steps RMSE": "30.68"
+  },
+  "table_metrics": {
+    "12 steps MAE": "18.37",
+    "12 steps MAPE": "12.01",
+    "12 steps RMSE": "30.68"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Pattern-Matching Dynamic Memory Network for Dual-Mode Traffic Prediction\nCodebase: Repository not available\n\nImprove the PM-DMNet(R) model on the PeMSD4 dataset. The result should improve on the following metrics: {'12 steps MAE': '18.37', '12 steps MAPE': '12.01', '12 steps RMSE': '30.68'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: PeMSD4
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'PeMSD4_PM-DMNet(R)'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Peptides-struct_GCN+
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Peptides-struct",
+  "model_name": "GCN+",
+  "model_links": [],
+  "paper_title": "Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence",
+  "paper_url": "https://arxiv.org/abs/2502.09263v1",
+  "metrics": {
+    "MAE": "0.2421 \u00b1 0.0016"
+  },
+  "table_metrics": {
+    "MAE": "0.2421 \u00b1 0.0016"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence\nCodebase: Repository not available\n\nImprove the GCN+ model on the Peptides-struct dataset. The result should improve on the following metrics: {'MAE': '0.2421 \u00b1 0.0016'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Peptides-struct
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Peptides-struct_GCN+'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: STL-10,_40_Labels_SemiOccam
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "STL-10, 40 Labels",
+  "model_name": "SemiOccam",
+  "model_links": [],
+  "paper_title": "ViTSGMM: A Robust Semi-Supervised Image Recognition Network Using Sparse Labels",
+  "paper_url": "https://arxiv.org/abs/2506.03582v1",
+  "metrics": {
+    "Accuracy": "95.43"
+  },
+  "table_metrics": {
+    "Accuracy": "95.43"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: ViTSGMM: A Robust Semi-Supervised Image Recognition Network Using Sparse Labels\nCodebase: Repository not available\n\nImprove the SemiOccam model on the STL-10, 40 Labels dataset. The result should improve on the following metrics: {'Accuracy': '95.43'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: STL-10, 40 Labels
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'STL-10,_40_Labels_SemiOccam'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Stanford_Cars_ProMetaR
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Stanford Cars",
+  "model_name": "ProMetaR",
+  "model_links": [],
+  "paper_title": "Prompt Learning via Meta-Regularization",
+  "paper_url": "https://arxiv.org/abs/2404.00851v1",
+  "metrics": {
+    "Harmonic mean": "76.72"
+  },
+  "table_metrics": {
+    "Harmonic mean": "76.72"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Prompt Learning via Meta-Regularization\nCodebase: Repository not available\n\nImprove the ProMetaR model on the Stanford Cars dataset. The result should improve on the following metrics: {'Harmonic mean': '76.72'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Stanford Cars
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Stanford_Cars_ProMetaR'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: SumMe_CSTA
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "SumMe",
+  "model_name": "CSTA",
+  "model_links": [],
+  "paper_title": "CSTA: CNN-based Spatiotemporal Attention for Video Summarization",
+  "paper_url": "https://arxiv.org/abs/2405.11905v2",
+  "metrics": {
+    "Kendall's Tau": "0.246",
+    "Spearman's Rho": "0.274"
+  },
+  "table_metrics": {
+    "Kendall's Tau": "0.246",
+    "Spearman's Rho": "0.274"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: CSTA: CNN-based Spatiotemporal Attention for Video Summarization\nCodebase: Repository not available\n\nImprove the CSTA model on the SumMe dataset. The result should improve on the following metrics: {\"Kendall's Tau\": '0.246', \"Spearman's Rho\": '0.274'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: SumMe
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'SumMe_CSTA'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: TXL-PBC:_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "TXL-PBC: a freely accessible labeled peripheral blood cell dataset",
+  "model_name": "yolov5n",
+  "model_links": [],
+  "paper_title": "TXL-PBC: a freely accessible labeled peripheral blood cell dataset",
+  "paper_url": "https://arxiv.org/abs/2407.13214v1",
+  "metrics": {
+    "mAP50": "0.958"
+  },
+  "table_metrics": {
+    "mAP50": "0.958"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: TXL-PBC: a freely accessible labeled peripheral blood cell dataset\nCodebase: Repository not available\n\nImprove the yolov5n model on the TXL-PBC: a freely accessible labeled peripheral blood cell dataset dataset. The result should improve on the following metrics: {'mAP50': '0.958'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: TXL-PBC: a freely accessible labeled peripheral blood cell dataset
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'TXL-PBC:_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Tiny-ImageNet_PRO-DSC
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Tiny-ImageNet",
+  "model_name": "PRO-DSC",
+  "paper_title": "Exploring a Principled Framework for Deep Subspace Clustering",
+  "paper_url": "https://arxiv.org/abs/2503.17288v1",
+  "code_links": [],
+  "metrics": {
+    "Accuracy": "0.698",
+    "NMI": "0.805"
+  },
+  "table_metrics": {
+    "Accuracy": "0.698",
+    "NMI": "0.805"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: Exploring a Principled Framework for Deep Subspace Clustering\n    Codebase: https://github.com/mengxianghan123/PRO-DSC\n\n    Improve the PRO-DSC model on the Tiny-ImageNet dataset. The result\n    should improve on the following metrics: {'Accuracy': '0.698', 'NMI': '0.805'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Tiny-ImageNet
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Tiny-ImageNet_PRO-DSC'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Tiny_ImageNet_Classification_MANO-tiny
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Tiny ImageNet Classification",
+  "model_name": "MANO-tiny",
+  "model_links": [],
+  "paper_title": "Linear Attention with Global Context: A Multipole Attention Mechanism for Vision and Physics",
+  "paper_url": "https://arxiv.org/abs/2507.02748",
+  "metrics": {
+    "Validation Acc": "87.52"
+  },
+  "table_metrics": {
+    "Validation Acc": "87.52"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Linear Attention with Global Context: A Multipole Attention Mechanism for Vision and Physics\nCodebase: Repository not available\n\nImprove the MANO-tiny model on the Tiny ImageNet Classification dataset. The result should improve on the following metrics: {'Validation Acc': '87.52'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Tiny ImageNet Classification
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Tiny_ImageNet_Classification_MANO-tiny'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Traffic_GLinear
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Traffic",
+  "model_name": "GLinear",
+  "model_links": [],
+  "paper_title": "Bridging Simplicity and Sophistication using GLinear: A Novel Architecture for Enhanced Time Series Prediction",
+  "paper_url": "https://arxiv.org/abs/2501.01087v3",
+  "metrics": {
+    "MSE ": "0.3222"
+  },
+  "table_metrics": {
+    "MSE ": "0.3222"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Bridging Simplicity and Sophistication using GLinear: A Novel Architecture for Enhanced Time Series Prediction\nCodebase: Repository not available\n\nImprove the GLinear model on the Traffic dataset. The result should improve on the following metrics: {'MSE ': '0.3222'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Traffic
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Traffic_GLinear'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Training_and_validation_dataset_of_capsule_vision_2024_challenge._BiomedCLIP+PubmedBERT
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Training and validation dataset of capsule vision 2024 challenge.",
+  "model_name": "BiomedCLIP+PubmedBERT",
+  "model_links": [],
+  "paper_title": "A Multimodal Approach For Endoscopic VCE Image Classification Using BiomedCLIP-PubMedBERT",
+  "paper_url": "https://arxiv.org/abs/2410.19944v3",
+  "metrics": {
+    "Total Accuracy": "97.75"
+  },
+  "table_metrics": {
+    "Total Accuracy": "97.75"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: A Multimodal Approach For Endoscopic VCE Image Classification Using BiomedCLIP-PubMedBERT\nCodebase: Repository not available\n\nImprove the BiomedCLIP+PubmedBERT model on the Training and validation dataset of capsule vision 2024 challenge. dataset. The result should improve on the following metrics: {'Total Accuracy': '97.75'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Training and validation dataset of capsule vision 2024 challenge.
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Training_and_validation_dataset_of_capsule_vision_2024_challenge._BiomedCLIP+PubmedBERT'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: UCR_Anomaly_Archive_KAN
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "UCR Anomaly Archive",
+  "model_name": "KAN",
+  "model_links": [],
+  "paper_title": "KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks",
+  "paper_url": "https://arxiv.org/abs/2411.00278v1",
+  "metrics": {
+    "AUC ROC ": "0.7489"
+  },
+  "table_metrics": {
+    "AUC ROC ": "0.7489"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks\nCodebase: Repository not available\n\nImprove the KAN model on the UCR Anomaly Archive dataset. The result should improve on the following metrics: {'AUC ROC ': '0.7489'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: UCR Anomaly Archive
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'UCR_Anomaly_Archive_KAN'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: Weather_(192)_xPatch
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "Weather (192)",
+  "model_name": "xPatch",
+  "model_links": [],
+  "paper_title": "xPatch: Dual-Stream Time Series Forecasting with Exponential Seasonal-Trend Decomposition",
+  "paper_url": "https://arxiv.org/abs/2412.17323v2",
+  "metrics": {
+    "MAE": "0.227",
+    "MSE": "0.189"
+  },
+  "table_metrics": {
+    "MAE": "0.227",
+    "MSE": "0.189"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: xPatch: Dual-Stream Time Series Forecasting with Exponential Seasonal-Trend Decomposition\nCodebase: Repository not available\n\nImprove the xPatch model on the Weather (192) dataset. The result should improve on the following metrics: {'MAE': '0.227', 'MSE': '0.189'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: Weather (192)
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'Weather_(192)_xPatch'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: WiGesture_CSI-BERT
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "WiGesture",
+  "model_name": "CSI-BERT",
+  "model_links": [],
+  "paper_title": "Finding the Missing Data: A BERT-inspired Approach Against Package Loss in Wireless Sensing",
+  "paper_url": "https://arxiv.org/abs/2403.12400v1",
+  "metrics": {
+    "Accuracy (% )": "93.94"
+  },
+  "table_metrics": {
+    "Accuracy (% )": "93.94"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Finding the Missing Data: A BERT-inspired Approach Against Package Loss in Wireless Sensing\nCodebase: Repository not available\n\nImprove the CSI-BERT model on the WiGesture dataset. The result should improve on the following metrics: {'Accuracy (% )': '93.94'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: WiGesture
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'WiGesture_CSI-BERT'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: York_Urban_Dataset_DT-LSD
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "York Urban Dataset",
+  "model_name": "DT-LSD",
+  "model_links": [],
+  "paper_title": "DT-LSD: Deformable Transformer-based Line Segment Detection",
+  "paper_url": "https://arxiv.org/abs/2411.13005v1",
+  "metrics": {
+    "sAP10": "33.2",
+    "sAP15": "35.1",
+    "sAP5": "30.2"
+  },
+  "table_metrics": {
+    "sAP10": "33.2",
+    "sAP15": "35.1",
+    "sAP5": "30.2"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: DT-LSD: Deformable Transformer-based Line Segment Detection\nCodebase: Repository not available\n\nImprove the DT-LSD model on the York Urban Dataset dataset. The result should improve on the following metrics: {'sAP10': '33.2', 'sAP15': '35.1', 'sAP5': '30.2'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: York Urban Dataset
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'York_Urban_Dataset_DT-LSD'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ZINC_NeuralWalker
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ZINC",
+  "model_name": "NeuralWalker",
+  "model_links": [],
+  "paper_title": "Learning Long Range Dependencies on Graphs via Random Walks",
+  "paper_url": "https://arxiv.org/abs/2406.03386v2",
+  "metrics": {
+    "MAE": "0.065 \u00b1 0.001"
+  },
+  "table_metrics": {
+    "MAE": "0.065 \u00b1 0.001"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Learning Long Range Dependencies on Graphs via Random Walks\nCodebase: Repository not available\n\nImprove the NeuralWalker model on the ZINC dataset. The result should improve on the following metrics: {'MAE': '0.065 \u00b1 0.001'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ZINC
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ZINC_NeuralWalker'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ZJU-RGB-P_CSFNet-2
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ZJU-RGB-P",
+  "model_name": "CSFNet-2",
+  "paper_title": "CSFNet: A Cosine Similarity Fusion Network for Real-Time RGB-X Semantic Segmentation of Driving Scenes",
+  "paper_url": "https://arxiv.org/abs/2407.01328v1",
+  "code_links": [],
+  "metrics": {
+    "mIoU": "91.40",
+    "Frame (fps)": "75 (3090)"
+  },
+  "table_metrics": {
+    "mIoU": "91.40",
+    "Frame (fps)": "75 (3090)"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\n    Paper: CSFNet: A Cosine Similarity Fusion Network for Real-Time RGB-X Semantic Segmentation of Driving Scenes\n    Codebase: https://github.com/Danial-Qashqai/CSFNet\n\n    Improve the CSFNet-2 model on the ZJU-RGB-P dataset. The result\n    should improve on the following metrics: {'mIoU': '91.40', 'Frame (fps)': '75 (3090)'}. You must use only the codebase provided.\n    "
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ZJU-RGB-P
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ZJU-RGB-P_CSFNet-2'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: clintox_BiLSTM
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "clintox",
+  "model_name": "BiLSTM",
+  "model_links": [],
+  "paper_title": "Accelerating Drug Safety Assessment using Bidirectional-LSTM for SMILES Data",
+  "paper_url": "https://arxiv.org/abs/2407.18919v1",
+  "metrics": {
+    "AUC": "0.97"
+  },
+  "table_metrics": {
+    "AUC": "0.97"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Accelerating Drug Safety Assessment using Bidirectional-LSTM for SMILES Data\nCodebase: Repository not available\n\nImprove the BiLSTM model on the clintox dataset. The result should improve on the following metrics: {'AUC': '0.97'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: clintox
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'clintox_BiLSTM'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ogbg-molhiv_GatedGCN+
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ogbg-molhiv",
+  "model_name": "GatedGCN+",
+  "model_links": [],
+  "paper_title": "Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence",
+  "paper_url": "https://arxiv.org/abs/2502.09263v1",
+  "metrics": {
+    "Ext. data": "No",
+    "Number of params": "1076633",
+    "Test ROC-AUC": "0.8040 \u00b1 0.0164",
+    "Validation ROC-AUC": "0.8329 \u00b1 0.0158"
+  },
+  "table_metrics": {
+    "Ext. data": "No",
+    "Number of params": "1076633",
+    "Test ROC-AUC": "0.8040 \u00b1 0.0164",
+    "Validation ROC-AUC": "0.8329 \u00b1 0.0158"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Unlocking the Potential of Classic GNNs for Graph-level Tasks: Simple Architectures Meet Excellence\nCodebase: Repository not available\n\nImprove the GatedGCN+ model on the ogbg-molhiv dataset. The result should improve on the following metrics: {'Ext. data': 'No', 'Number of params': '1076633', 'Test ROC-AUC': '0.8040 \u00b1 0.0164', 'Validation ROC-AUC': '0.8329 \u00b1 0.0158'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ogbg-molhiv
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ogbg-molhiv_GatedGCN+'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+📋 TASK: ogbl-ddi_GCN_(node_embedding)
+================================================================================
+✅ metadata.json found
+
+📄 Contents of metadata.json:
+--------------------------------------------------------------------------------
+{
+  "dataset": "ogbl-ddi",
+  "model_name": "GCN (node embedding)",
+  "model_links": [],
+  "paper_title": "Can GNNs Learn Link Heuristics? A Concise Review and Evaluation of Link Prediction Methods",
+  "paper_url": "https://arxiv.org/abs/2411.14711v1",
+  "metrics": {
+    "Ext. data": "No",
+    "Number of params": "5125250",
+    "Test Hits@20": "0.9549 \u00b1 0.0073",
+    "Validation Hits@20": "0.9098 \u00b1 0.0294"
+  },
+  "table_metrics": {
+    "Ext. data": "No",
+    "Number of params": "5125250",
+    "Test Hits@20": "0.9549 \u00b1 0.0073",
+    "Validation Hits@20": "0.9098 \u00b1 0.0294"
+  },
+  "prompts": [
+    "Given the following paper and codebase:\nPaper: Can GNNs Learn Link Heuristics? A Concise Review and Evaluation of Link Prediction Methods\nCodebase: Repository not available\n\nImprove the GCN (node embedding) model on the ogbl-ddi dataset. The result should improve on the following metrics: {'Ext. data': 'No', 'Number of params': '5125250', 'Test Hits@20': '0.9549 \u00b1 0.0073', 'Validation Hits@20': '0.9098 \u00b1 0.0294'}. You must use only the codebase provided."
+  ]
+}
+
+--------------------------------------------------------------------------------
+🔍 KEY FIELDS TO VERIFY AGAINST TASK NAME:
+--------------------------------------------------------------------------------
+  dataset: ogbl-ddi
+
+--------------------------------------------------------------------------------
+❓ MANUAL CHECK: Does this metadata match task 'ogbl-ddi_GCN_(node_embedding)'?
+   Review the content above and verify the match.
+--------------------------------------------------------------------------------
+
+================================================================================
+✅ CHECK COMPLETE
+================================================================================
+
+Next steps:
+1. Review the file counts and sizes for each task
+2. Manually verify task names match their metadata.json content
+3. Flag any mismatches or missing metadata files
+
+COMPLETE FOLDER NAME vs METADATA DATASET FIELD COMPARISON
+All 54 Tasks from GCS Bucket: benchmarking_tasks_repos
+
+FORMAT: [Folder Name] → [Metadata "dataset" field]
+
+1.  5-Datasets_CODE-CL → 5-Datasets
+2.  Astock_SRL&Factors → Astock
+3.  BTAD_URD → BTAD
+4.  CAT2000_SUM → CAT2000
+5.  CIFAR-100_PRO-DSC → CIFAR-100
+6.  CIFAR-10_ABNet-2G-R0 → CIFAR-10
+7.  CIFAR-10_ResNet18_(FSGDM) → CIFAR-10
+8.  CNN → CNN / Daily Mail  ⚠️ MISMATCH: Folder missing "/ Daily Mail"
+9.  California_Housing_Prices_Binary_Diffusion → California Housing Prices
+10. Chameleon_CoED → Chameleon
+11. Digital_twin-supported_deep_learning_for_fault_diagnosis_DANN → Digital twin-supported deep learning for fault diagnosis
+12. ETTh1_(336)_Multivariate_AMD → ETTh1 (336) Multivariate
+13. ETTh1_(336)_Multivariate_SOFTS → ETTh1 (336) Multivariate
+14. ETTh1_(720)_Multivariate_SparseTSF → ETTh1 (720) Multivariate
+15. Electricity_(192)_CycleNet → Electricity (192)
+16. FB15k-237_DaBR → FB15k-237
+17. FER2013_VGG_based → FER2013
+18. Fashion-MNIST_Continued_fraction_of_straight_lines → Fashion-MNIST
+19. Fashion-MNIST_ENERGIZE → Fashion-MNIST
+20. Fashion-MNIST_GECCO → Fashion-MNIST
+21. Food-101_MANO-tiny → Food-101
+22. Gowalla_RLAE-DAN → Gowalla
+23. HME100K_ICAL → HME100K
+24. ISTD+_RASM → ISTD+
+25. ImageNet-10_DPAC → ImageNet-10
+26. Kvasir-SEG_EMCAD → Kvasir-SEG
+27. Kvasir-SEG_EffiSegNet-B5 → Kvasir-SEG
+28. Kvasir-SEG_Yolo-SAM_2 → Kvasir-SEG
+29. MIMIC-III_FLD → MIMIC-III
+30. MM-Vet_FlashSloth-HD → MM-Vet
+31. MNIST_GatedGCN+ → MNIST
+32. MNIST_rKAN → MNIST
+33. MalNet-Tiny_GatedGCN+ → MalNet-Tiny
+34. Office-31_EUDA → Office-31
+35. PDBbind_BAPULM → PDBbind
+36. PeMSD4_PM-DMNet(R) → PeMSD4
+37. Peptides-struct_GCN+ → Peptides-struct
+38. STL-10,_40_Labels_SemiOccam → STL-10, 40 Labels
+39. Stanford_Cars_ProMetaR → Stanford Cars
+40. SumMe_CSTA → SumMe
+41. TXL-PBC:_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n → TXL-PBC: a freely accessible labeled peripheral blood cell dataset
+42. Tiny-ImageNet_PRO-DSC → Tiny-ImageNet
+43. Tiny_ImageNet_Classification_MANO-tiny → Tiny ImageNet Classification
+44. Traffic_GLinear → Traffic
+45. Training_and_validation_dataset_of_capsule_vision_2024_challenge._BiomedCLIP+PubmedBERT → Training and validation dataset of capsule vision 2024 challenge.
+46. UCR_Anomaly_Archive_KAN → UCR Anomaly Archive
+47. Weather_(192)_xPatch → Weather (192)
+48. WiGesture_CSI-BERT → WiGesture
+49. York_Urban_Dataset_DT-LSD → York Urban Dataset
+50. ZINC_NeuralWalker → ZINC
+51. ZJU-RGB-P_CSFNet-2 → ZJU-RGB-P
+52. clintox_BiLSTM → clintox
+53. ogbg-molhiv_GatedGCN+ → ogbg-molhiv
+54. ogbl-ddi_GCN_(node_embedding) → ogbl-ddi
+
+SUMMARY:
+--------
+Total tasks: 54
+Perfect matches: 53
+Partial/Missing info: 1 (CNN - missing "/ Daily Mail" suffix)
+
+NOTES:
+- Underscores (_) in folder names typically map to spaces in metadata
+- Hyphens (-) are preserved in both
+- Model names appear after the dataset name in folder names (separated by _)
+- The only identified issue is task #8 (CNN) which is missing "/ Daily Mail" from the folder name
+

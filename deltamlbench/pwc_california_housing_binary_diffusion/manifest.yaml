@@ -1,0 +1,36 @@
+version: 0.2.5
+meta:
+  name: California Housing Binary Diffusion Optimization
+  expertise:
+  - machine_learning
+  - deep_learning
+  - generative_models
+  canary: california-housing-binary-diffusion-v1
+  default_provider: anthropic
+tasks:
+  main:
+    scoring:
+      visible_to_agent: true
+      score_on_usage_limits: true
+    resources: &id001
+      gpu:
+        count_range:
+        - 1
+        - 1
+        model: a100
+      cpus: 8
+      memory_gb: 64
+    meta: &id002
+      scoring:
+        manual: false
+        intermediate: true
+      task_description: >
+        Improve a Binary Diffusion model for tabular data generation on the California Housing Prices dataset.
+        The goal is to beat baseline regression metrics (DT MSE: 0.45, LR MSE: 0.55, RF MSE: 0.39) 
+        while maintaining model efficiency (target: <1.5M parameters).
+  hidden_score:
+    scoring:
+      visible_to_agent: false  
+      score_on_usage_limits: true
+    resources: *id001
+    meta: *id002

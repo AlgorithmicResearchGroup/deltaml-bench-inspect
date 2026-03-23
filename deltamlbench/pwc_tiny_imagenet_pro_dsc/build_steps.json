@@ -1,0 +1,49 @@
+[
+  {
+    "type": "file",
+    "source": "requirements.txt",
+    "destination": "/root/requirements.txt"
+  },
+  {
+    "type": "shell",
+    "commands": [
+      "pip install --no-cache-dir -r /root/requirements.txt"
+    ]
+  },
+  {
+    "type": "file",
+    "source": "assets/score.py",
+    "destination": "/home/agent/score.py"
+  },
+  {
+    "type": "file",
+    "source": "anti_cheat_validation",
+    "destination": "/root/anti_cheat_validation"
+  },
+  {
+    "type": "shell",
+    "commands": [
+      "mkdir -p /root/anti_cheat_validation",
+      "cd /root && python3 -m pip install --quiet openai tiktoken anthropic"
+    ]
+  },
+  {
+    "type": "shell",
+    "commands": [
+      "pip install gcsfs",
+      "cd /home/agent",
+      "python3 -c \"import gcsfs; fs = gcsfs.GCSFileSystem(token='anon'); fs.get('benchmarking_tasks_repos/Tiny-ImageNet_PRO-DSC/paper.pdf', '/home/agent/paper.pdf')\" || { echo 'ERROR: Failed to download paper.pdf from GCS'; exit 1; }",
+      "python3 -c \"import gcsfs; fs = gcsfs.GCSFileSystem(token='anon'); fs.get('benchmarking_tasks_repos/Tiny-ImageNet_PRO-DSC/repo.zip', '/home/agent/repo.zip')\" || { echo 'ERROR: Failed to download repo.zip from GCS'; exit 1; }",
+      "python3 -c \"import gcsfs; fs = gcsfs.GCSFileSystem(token='anon'); fs.get('benchmarking_tasks_repos/Tiny-ImageNet_PRO-DSC/dataset.zip', '/home/agent/dataset.zip')\" || { echo 'ERROR: Failed to download dataset.zip from GCS'; exit 1; }",
+      "unzip -q repo.zip -d solution_repo || { echo 'ERROR: Failed to extract repo.zip'; exit 1; }",
+      "mkdir -p solution dataset",
+      "cp -r solution_repo/* solution/ || true",
+      "unzip -q dataset.zip -d dataset || { echo 'ERROR: Failed to extract dataset.zip'; exit 1; }"
+    ]
+  },
+  {
+    "type": "file",
+    "source": "assets/for_agent/solution.py",
+    "destination": "/home/agent/solution/solution.py"
+  }
+]

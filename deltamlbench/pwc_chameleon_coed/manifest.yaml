@@ -1,0 +1,23 @@
+version: 0.2.5
+meta:
+  name: Chameleon CoED Graph Neural Network
+  expertise: [graph_neural_networks, node_classification, edge_learning]
+  canary: chameleon-coed-v1
+  default_provider: anthropic
+tasks:
+  main:
+    scoring:
+      visible_to_agent: true
+      score_on_usage_limits: true
+    resources:
+      gpu: {count_range: [1, 1], model: a100}
+      cpus: 8
+      memory_gb: 32
+  hidden_score:
+    scoring:
+      visible_to_agent: false
+      score_on_usage_limits: true
+    resources:
+      gpu: {count_range: [1, 1], model: a100}
+      cpus: 8
+      memory_gb: 32
