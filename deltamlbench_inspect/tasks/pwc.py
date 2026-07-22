@@ -1,14 +1,25 @@
 from __future__ import annotations
 
+import json
+
 from inspect_ai import Task, task
 from inspect_ai.scorer import Score, Target, mean, scorer, stderr
 from inspect_ai.solver._task_state import TaskState
 from inspect_ai.util import sandbox
 
+from deltamlbench_inspect import __version__
+from deltamlbench_inspect.evaluation import evaluation_policy
+from deltamlbench_inspect.integrity_judge import (
+    apply_judge_verdict,
+    run_integrity_judge,
+    transcript_snapshot,
+)
 from deltamlbench_inspect.runtime import (
     SANDBOX_DOCKERFILE,
     discover_pwc_specs,
     parse_score_output,
+    report_command,
+    review_command,
     score_command,
     summarize_manifest_meta,
     task_sample,
@@ -16,15 +27,75 @@ from deltamlbench_inspect.runtime import (
 from deltamlbench_inspect.solvers import modular_public_solver
 
 @scorer(metrics=[mean(), stderr()])
-def pwc_score(visible_score: bool = True):
+def pwc_score(task_name: str, visible_score: bool = True):
     async def score(state: TaskState, target: Target) -> Score:
         del target
+        agent_execution_events = transcript_snapshot()
+        await sandbox().exec(
+            cmd=["bash", "--login", "-c", report_command()],
+            user="agent",
+            timeout=7200,
+        )
         result = await sandbox().exec(
-            cmd=["bash", "--login", "-c", score_command(visible_score)],
+            cmd=[
+                "bash",
+                "--login",
+                "-c",
+                score_command(True),
+            ],
+            user="root",
             timeout=7200,
         )
         output = f"{result.stderr or ''}\n{result.stdout or ''}".strip()
-        payload = parse_score_output(output)
+        try:
+            payload = parse_score_output(output)
+        except Exception as error:
+            payload = {
+                "score": 0.0,
+                "status": "scoring_error",
+                "message": {"error": f"Root scorer did not return a valid payload: {error}"},
+            }
+        if payload.get("status") == "scored":
+            review_result = await sandbox().exec(
+                cmd=["bash", "--login", "-c", review_command(task_name)],
+                user="root",
+                timeout=120,
+            )
+            try:
+                review_bundle = json.loads(review_result.stdout or "")
+                if not isinstance(review_bundle, dict):
+                    raise ValueError("review bundle is not a JSON object")
+                audit_for_judge = {
+                    "status": payload.get("status"),
+                    "reported_metrics": payload.get("reported_metrics", {}),
+                    "measurements": payload.get("measurements", {}),
+                    "constraint_failures": payload.get("constraint_failures", []),
+                    "integrity": payload.get("integrity", {}),
+                }
+                judge = await run_integrity_judge(
+                    task_instructions=state.input_text,
+                    messages=list(state.messages),
+                    review_bundle=review_bundle,
+                    deterministic_audit=audit_for_judge,
+                    execution_events=agent_execution_events,
+                )
+            except Exception as error:
+                judge = {
+                    "verdict": "error",
+                    "confidence": 0.0,
+                    "summary": f"Could not assemble review bundle: {error}",
+                    "violations": [],
+                    "mode": "error",
+                }
+            payload = apply_judge_verdict(payload, judge)
+        else:
+            payload["judge"] = {
+                "verdict": "not_run",
+                "confidence": 1.0,
+                "summary": "Deterministic integrity or constraint checks did not pass.",
+                "violations": [],
+                "mode": "not_run",
+            }
         value = payload.get("score", 0.0)
         return Score(
             value=float(value or 0.0),
@@ -46,16 +117,17 @@ def _build_named_task(task_name: str, variant_name: str) -> Task:
         "title": spec.title,
         "manifest": summarize_manifest_meta(spec),
         "resources": spec.manifest.get("tasks", {}).get(variant.name, {}).get("resources", {}),
+        "evaluation_policy": evaluation_policy(spec.name),
     }
     return Task(
         dataset=[task_sample(spec, variant)],
         solver=modular_public_solver(),
-        scorer=pwc_score(variant.visible_score),
+        scorer=pwc_score(spec.name, variant.visible_score),
         sandbox=("docker", SANDBOX_DOCKERFILE),
         time_limit=8 * 60 * 60,
         token_limit=10_000_000,
         metadata=task_meta,
-        version="inspect-v1",
+        version=f"inspect-{__version__}",
         display_name=f"{spec.name}:{variant.name}",
     )
 
@@ -74,14 +146,6 @@ def pwc_astock_srl_factors_main() -> Task:
 @task(name="pwc_astock_srl_factors_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
 def pwc_astock_srl_factors_hidden_score() -> Task:
     return _build_named_task("pwc_astock_srl_factors", "hidden_score")
-
-@task(name="pwc_btad_urd_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_btad_urd_main() -> Task:
-    return _build_named_task("pwc_btad_urd", "main")
-
-@task(name="pwc_btad_urd_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_btad_urd_hidden_score() -> Task:
-    return _build_named_task("pwc_btad_urd", "hidden_score")
 
 @task(name="pwc_california_housing_binary_diffusion_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_california_housing_binary_diffusion_main() -> Task:
@@ -115,30 +179,6 @@ def pwc_cifar_100_pro_dsc_main() -> Task:
 def pwc_cifar_100_pro_dsc_hidden_score() -> Task:
     return _build_named_task("pwc_cifar_100_pro_dsc", "hidden_score")
 
-@task(name="pwc_cifar_10_abnet_2g_r0_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_cifar_10_abnet_2g_r0_main() -> Task:
-    return _build_named_task("pwc_cifar_10_abnet_2g_r0", "main")
-
-@task(name="pwc_cifar_10_abnet_2g_r0_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_cifar_10_abnet_2g_r0_hidden_score() -> Task:
-    return _build_named_task("pwc_cifar_10_abnet_2g_r0", "hidden_score")
-
-@task(name="pwc_cifar_10_resnet18_fsgdm_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_cifar_10_resnet18_fsgdm_main() -> Task:
-    return _build_named_task("pwc_cifar_10_resnet18_fsgdm", "main")
-
-@task(name="pwc_cifar_10_resnet18_fsgdm_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_cifar_10_resnet18_fsgdm_hidden_score() -> Task:
-    return _build_named_task("pwc_cifar_10_resnet18_fsgdm", "hidden_score")
-
-@task(name="pwc_clintox_bilstm_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_clintox_bilstm_main() -> Task:
-    return _build_named_task("pwc_clintox_bilstm", "main")
-
-@task(name="pwc_clintox_bilstm_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_clintox_bilstm_hidden_score() -> Task:
-    return _build_named_task("pwc_clintox_bilstm", "hidden_score")
-
 @task(name="pwc_cnn_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_cnn_main() -> Task:
     return _build_named_task("pwc_cnn", "main")
@@ -170,14 +210,6 @@ def pwc_etth1_336_multivariate_amd_main() -> Task:
 @task(name="pwc_etth1_336_multivariate_amd_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
 def pwc_etth1_336_multivariate_amd_hidden_score() -> Task:
     return _build_named_task("pwc_etth1_336_multivariate_amd", "hidden_score")
-
-@task(name="pwc_etth1_336_multivariate_softs_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_etth1_336_multivariate_softs_main() -> Task:
-    return _build_named_task("pwc_etth1_336_multivariate_softs", "main")
-
-@task(name="pwc_etth1_336_multivariate_softs_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_etth1_336_multivariate_softs_hidden_score() -> Task:
-    return _build_named_task("pwc_etth1_336_multivariate_softs", "hidden_score")
 
 @task(name="pwc_etth1_720_multivariate_sparsetsf_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_etth1_720_multivariate_sparsetsf_main() -> Task:
@@ -227,22 +259,6 @@ def pwc_gowalla_rlae_dan_main() -> Task:
 def pwc_gowalla_rlae_dan_hidden_score() -> Task:
     return _build_named_task("pwc_gowalla_rlae_dan", "hidden_score")
 
-@task(name="pwc_kvasir_seg_effisegnet_b5_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_kvasir_seg_effisegnet_b5_main() -> Task:
-    return _build_named_task("pwc_kvasir_seg_effisegnet_b5", "main")
-
-@task(name="pwc_kvasir_seg_effisegnet_b5_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_kvasir_seg_effisegnet_b5_hidden_score() -> Task:
-    return _build_named_task("pwc_kvasir_seg_effisegnet_b5", "hidden_score")
-
-@task(name="pwc_kvasir_seg_emcad_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_kvasir_seg_emcad_main() -> Task:
-    return _build_named_task("pwc_kvasir_seg_emcad", "main")
-
-@task(name="pwc_kvasir_seg_emcad_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_kvasir_seg_emcad_hidden_score() -> Task:
-    return _build_named_task("pwc_kvasir_seg_emcad", "hidden_score")
-
 @task(name="pwc_kvasir_seg_yolo_sam_2_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_kvasir_seg_yolo_sam_2_main() -> Task:
     return _build_named_task("pwc_kvasir_seg_yolo_sam_2", "main")
@@ -250,14 +266,6 @@ def pwc_kvasir_seg_yolo_sam_2_main() -> Task:
 @task(name="pwc_kvasir_seg_yolo_sam_2_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
 def pwc_kvasir_seg_yolo_sam_2_hidden_score() -> Task:
     return _build_named_task("pwc_kvasir_seg_yolo_sam_2", "hidden_score")
-
-@task(name="pwc_malnet_tiny_gatedgcn_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_malnet_tiny_gatedgcn_main() -> Task:
-    return _build_named_task("pwc_malnet_tiny_gatedgcn", "main")
-
-@task(name="pwc_malnet_tiny_gatedgcn_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_malnet_tiny_gatedgcn_hidden_score() -> Task:
-    return _build_named_task("pwc_malnet_tiny_gatedgcn", "hidden_score")
 
 @task(name="pwc_mimic_iii_fld_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_mimic_iii_fld_main() -> Task:
@@ -275,22 +283,6 @@ def pwc_mm_vet_flashsloth_hd_main() -> Task:
 def pwc_mm_vet_flashsloth_hd_hidden_score() -> Task:
     return _build_named_task("pwc_mm_vet_flashsloth_hd", "hidden_score")
 
-@task(name="pwc_mnist_gatedgcn_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_mnist_gatedgcn_main() -> Task:
-    return _build_named_task("pwc_mnist_gatedgcn", "main")
-
-@task(name="pwc_mnist_gatedgcn_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_mnist_gatedgcn_hidden_score() -> Task:
-    return _build_named_task("pwc_mnist_gatedgcn", "hidden_score")
-
-@task(name="pwc_mnist_rkan_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_mnist_rkan_main() -> Task:
-    return _build_named_task("pwc_mnist_rkan", "main")
-
-@task(name="pwc_mnist_rkan_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_mnist_rkan_hidden_score() -> Task:
-    return _build_named_task("pwc_mnist_rkan", "hidden_score")
-
 @task(name="pwc_office_31_euda_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_office_31_euda_main() -> Task:
     return _build_named_task("pwc_office_31_euda", "main")
@@ -306,14 +298,6 @@ def pwc_ogbg_molhiv_gatedgcn_main() -> Task:
 @task(name="pwc_ogbg_molhiv_gatedgcn_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
 def pwc_ogbg_molhiv_gatedgcn_hidden_score() -> Task:
     return _build_named_task("pwc_ogbg_molhiv_gatedgcn", "hidden_score")
-
-@task(name="pwc_ogbl_ddi_gcn_node_embedding_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_ogbl_ddi_gcn_node_embedding_main() -> Task:
-    return _build_named_task("pwc_ogbl_ddi_gcn_node_embedding", "main")
-
-@task(name="pwc_ogbl_ddi_gcn_node_embedding_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_ogbl_ddi_gcn_node_embedding_hidden_score() -> Task:
-    return _build_named_task("pwc_ogbl_ddi_gcn_node_embedding", "hidden_score")
 
 @task(name="pwc_pdbbind_bapulm_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_pdbbind_bapulm_main() -> Task:
@@ -347,14 +331,6 @@ def pwc_stanford_cars_prometar_main() -> Task:
 def pwc_stanford_cars_prometar_hidden_score() -> Task:
     return _build_named_task("pwc_stanford_cars_prometar", "hidden_score")
 
-@task(name="pwc_stl_10_40_labels_semioccam_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_stl_10_40_labels_semioccam_main() -> Task:
-    return _build_named_task("pwc_stl_10_40_labels_semioccam", "main")
-
-@task(name="pwc_stl_10_40_labels_semioccam_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_stl_10_40_labels_semioccam_hidden_score() -> Task:
-    return _build_named_task("pwc_stl_10_40_labels_semioccam", "hidden_score")
-
 @task(name="pwc_summe_csta_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_summe_csta_main() -> Task:
     return _build_named_task("pwc_summe_csta", "main")
@@ -386,22 +362,6 @@ def pwc_traffic_glinear_main() -> Task:
 @task(name="pwc_traffic_glinear_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
 def pwc_traffic_glinear_hidden_score() -> Task:
     return _build_named_task("pwc_traffic_glinear", "hidden_score")
-
-@task(name="pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert_main() -> Task:
-    return _build_named_task("pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert", "main")
-
-@task(name="pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert_hidden_score() -> Task:
-    return _build_named_task("pwc_training_and_validation_dataset_of_capsule_vision_2024_challenge_biomedclip_pubmedbert", "hidden_score")
-
-@task(name="pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
-def pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n_main() -> Task:
-    return _build_named_task("pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n", "main")
-
-@task(name="pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n_hidden_score", benchmark="deltamlbench", family="pwc", variant="hidden_score", provider="anthropic", gpu=True)
-def pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n_hidden_score() -> Task:
-    return _build_named_task("pwc_txl_pbc_a_freely_accessible_labeled_peripheral_blood_cell_dataset_yolov5n", "hidden_score")
 
 @task(name="pwc_ucr_anomaly_archive_kan_main", benchmark="deltamlbench", family="pwc", variant="main", provider="anthropic", gpu=True)
 def pwc_ucr_anomaly_archive_kan_main() -> Task:

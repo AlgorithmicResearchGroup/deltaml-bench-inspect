@@ -1,0 +1,280 @@
+version: 1
+
+# Policies in this file replace the underspecified objectives of tasks marked
+# "revise" in docs/TASK_SUITABILITY_AUDIT.md. Metrics are recomputed by the
+# shared scorer; values returned by solution.evaluate() are never authoritative.
+tasks:
+  pwc_5_datasets_code_cl:
+    status: revised
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      average_accuracy: {baseline: 93.32, direction: maximize, weight: 0.7, bounds: [0, 100]}
+      bwt: {baseline: -0.25, direction: maximize, weight: 0.3, bounds: [-100, 100], normalization: absolute_points}
+    required_outputs: [predictions, task_ids]
+
+  pwc_cat2000_sum:
+    status: revised
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      auc: {baseline: 0.888, direction: maximize, weight: 0.5, bounds: [0, 1]}
+      nss: {baseline: 2.423, direction: maximize, weight: 0.5, bounds: [0, null]}
+    required_outputs: [saliency_maps]
+
+  pwc_cifar_100_pro_dsc:
+    status: revised
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      accuracy: {baseline: 0.773, direction: maximize, weight: 0.5, bounds: [0, 1]}
+      nmi: {baseline: 0.824, direction: maximize, weight: 0.5, bounds: [0, 1]}
+    required_outputs: [cluster_assignments]
+
+  pwc_cnn:
+    status: calibration_required
+    aggregation: relative_improvement
+    metrics:
+      rouge_l: {baseline: 27.4, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [summaries]
+    constraints:
+      network_during_evaluation: false
+      pinned_generation_model: required
+      fixed_inference_budget: required
+
+  pwc_electricity_192_cyclenet:
+    status: revised
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      mse: {baseline: 0.144, direction: minimize, weight: 0.5, bounds: [0, null]}
+      mae: {baseline: 0.237, direction: minimize, weight: 0.5, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_fashion_mnist_continued_fraction_of_straight_lines:
+    status: revised
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      accuracy: {baseline: 84.12, direction: maximize, weight: 0.5, bounds: [0, 100]}
+      nmi: {baseline: 74.4, direction: maximize, weight: 0.5, bounds: [0, 100]}
+    required_outputs: [predictions, cluster_assignments, model_metadata]
+    constraints:
+      trainable_parameters: {maximum: 7870}
+
+  pwc_fashion_mnist_energize:
+    status: revised
+    aggregation: constrained_relative_improvement
+    metrics:
+      accuracy: {baseline: 0.902, direction: maximize, weight: 1.0, bounds: [0, 1]}
+    required_outputs: [predictions, energy_measurement]
+    constraints:
+      power_consumption: {maximum: 71.92, measurement: scorer_owned}
+
+  pwc_kvasir_seg_yolo_sam_2:
+    status: revised
+    aggregation: all_metrics_must_improve
+    metrics:
+      f1_score: {baseline: 0.907, direction: maximize, weight: 0.333333, bounds: [0, 1]}
+      mean_dice: {baseline: 0.866, direction: maximize, weight: 0.333333, bounds: [0, 1]}
+      miou: {baseline: 0.764, direction: maximize, weight: 0.333334, bounds: [0, 1]}
+    required_outputs: [segmentation_masks]
+
+  pwc_mm_vet_flashsloth_hd:
+    status: calibration_required
+    aggregation: constrained_relative_improvement
+    metrics:
+      gpt4_score: {baseline: 41.9, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [answers, model_metadata]
+    constraints:
+      parameters: {maximum: 3200000000}
+      pinned_judge_model: required
+      fixed_inference_budget: required
+
+  pwc_office_31_euda:
+    status: calibration_required
+    aggregation: worst_group_relative_improvement
+    metrics:
+      accuracy: {baseline: 92.0, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions, domain_ids]
+    groups: [amazon, dslr, webcam]
+
+  pwc_stanford_cars_prometar:
+    status: revised
+    aggregation: relative_improvement
+    metrics:
+      harmonic_mean: {baseline: 76.72, direction: maximize, weight: 1.0, bounds: [0, 100], computed_from: [seen_accuracy, unseen_accuracy]}
+    required_outputs: [predictions, seen_unseen_labels]
+
+  pwc_tiny_imagenet_classification_mano_tiny:
+    status: calibration_required
+    aggregation: constrained_relative_improvement
+    metrics:
+      accuracy: {baseline: 87.52, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions, model_metadata]
+    constraints:
+      trainable_parameters: {maximum: null, calibration_required: true}
+      inference_flops: {maximum: null, calibration_required: true}
+
+  pwc_wigesture_csi_bert:
+    status: calibration_required
+    aggregation: worst_group_relative_improvement
+    metrics:
+      accuracy: {baseline: 93.94, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions, subject_ids, environment_ids]
+    groups: [subject, environment]
+
+  pwc_zju_rgb_p_csfnet_2:
+    status: revised
+    aggregation: relative_improvement
+    metrics:
+      f1_score: {baseline: 90.7, direction: maximize, weight: 1.0, bounds: [0, 100], computed_from: [precision, recall]}
+    required_outputs: [predictions]
+
+  # Retained pilot tasks use the same scorer-owned protocol. Their existing
+  # metric objectives are preserved pending integrity-reviewed pilot runs.
+  pwc_astock_srl_factors:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 69.48, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions]
+
+  pwc_california_housing_binary_diffusion:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mse: {baseline: 0.39, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+    artifact_formats:
+      predictions: JSON array aligned with /home/agent/evaluation/features.npy
+
+  pwc_chameleon_coed:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 79.69, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions]
+
+  pwc_digital_twin_supported_deep_learning_for_fault_diagnosis_dann:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 80.22, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions, domain_ids]
+
+  pwc_etth1_336_multivariate_amd:
+    status: pilot
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      mae: {baseline: 0.427, direction: minimize, weight: 0.5, bounds: [0, null]}
+      mse: {baseline: 0.418, direction: minimize, weight: 0.5, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_etth1_720_multivariate_sparsetsf:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mse: {baseline: 0.426, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_fashion_mnist_gecco:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 88.09, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions]
+
+  pwc_fer2013_vgg_based:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 66.13, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions]
+
+  pwc_gowalla_rlae_dan:
+    status: pilot
+    aggregation: weighted_mean_relative_improvement
+    metrics:
+      recall_at_20: {baseline: 0.1922, direction: maximize, weight: 0.5, bounds: [0, 1]}
+      ndcg_at_20: {baseline: 0.1605, direction: maximize, weight: 0.5, bounds: [0, 1]}
+    required_outputs: [rankings]
+
+  pwc_mimic_iii_fld:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mse: {baseline: 0.444, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions, patient_ids]
+
+  pwc_ogbg_molhiv_gatedgcn:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      roc_auc: {baseline: 0.774, direction: maximize, weight: 1.0, bounds: [0, 1]}
+    required_outputs: [predictions]
+
+  pwc_pdbbind_bapulm:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      rmse: {baseline: 0.898, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions, complex_ids]
+
+  pwc_pemsd4_pm_dmnet_r:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mae_12_steps: {baseline: 18.37, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_peptides_struct_gcn:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mae: {baseline: 0.2421, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_summe_csta:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      kendall_tau: {baseline: 0.246, direction: maximize, weight: 1.0, bounds: [-1, 1]}
+    required_outputs: [rankings, video_ids]
+
+  pwc_tiny_imagenet_pro_dsc:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      accuracy: {baseline: 65.0, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [predictions]
+
+  pwc_traffic_glinear:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mse: {baseline: 0.3222, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_ucr_anomaly_archive_kan:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      auc_roc: {baseline: 0.7489, direction: maximize, weight: 1.0, bounds: [0, 1]}
+    required_outputs: [anomaly_scores, series_ids]
+
+  pwc_weather_192_xpatch:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mae: {baseline: 0.227, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]
+
+  pwc_york_urban_dataset_dt_lsd:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      sap10: {baseline: 33.2, direction: maximize, weight: 1.0, bounds: [0, 100]}
+    required_outputs: [detections]
+
+  pwc_zinc_neuralwalker:
+    status: pilot
+    aggregation: relative_improvement
+    metrics:
+      mae: {baseline: 0.065, direction: minimize, weight: 1.0, bounds: [0, null]}
+    required_outputs: [predictions]

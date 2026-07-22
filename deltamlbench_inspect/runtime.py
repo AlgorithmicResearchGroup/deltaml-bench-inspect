@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import re
 import shlex
 from dataclasses import dataclass
@@ -9,6 +10,11 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import yaml
+
+from deltamlbench_inspect.evaluation import (
+    evaluation_policy,
+    format_evaluation_contract,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TASKS_ROOT = REPO_ROOT / "deltamlbench"
@@ -115,6 +121,7 @@ def _sanitized_requirements_text(path: Path) -> str:
 def sample_files_for_task(spec: TaskSpec) -> dict[str, str]:
     files: dict[str, str] = {}
     stage_root = "/tmp/deltamlbench_assets"
+    policy = evaluation_policy(spec.name)
 
     def stage_file(relative_path: str) -> None:
         source = spec.task_dir / relative_path
@@ -132,39 +139,56 @@ def sample_files_for_task(spec: TaskSpec) -> dict[str, str]:
     ]:
         stage_file(relative_path)
 
-    for anti_path in sorted((spec.task_dir / "anti_cheat_validation").rglob("*")):
-        if anti_path.is_file():
-            rel = anti_path.relative_to(spec.task_dir).as_posix()
-            files[f"{stage_root}/{rel}"] = _read_text(anti_path)
-
     compat_root = REPO_ROOT / "metr"
     for compat_file in [compat_root / "__init__.py", compat_root / "task_protected_scoring.py"]:
         rel = compat_file.relative_to(REPO_ROOT).as_posix()
         files[f"{stage_root}/{rel}"] = _read_text(compat_file)
+
+    if policy is not None:
+        scorer_root = Path(__file__).resolve().parent
+        files[f"{stage_root}/shared/evaluation.py"] = _read_text(
+            scorer_root / "evaluation.py"
+        )
+        files[f"{stage_root}/shared/scorer_driver.py"] = _read_text(
+            scorer_root / "scorer_driver.py"
+        )
+        files[f"{stage_root}/shared/report_collector.py"] = _read_text(
+            scorer_root / "report_collector.py"
+        )
+        files[f"{stage_root}/shared/review_bundle.py"] = _read_text(
+            scorer_root / "review_bundle.py"
+        )
+        files[f"{stage_root}/shared/evaluation_policy.json"] = (
+            json.dumps(policy, indent=2, sort_keys=True) + "\n"
+        )
 
     return files
 
 
 def setup_script_for_task(spec: TaskSpec) -> str:
     stage_root = "/tmp/deltamlbench_assets"
+    policy = evaluation_policy(spec.name)
     commands: list[str] = [
         "set -euo pipefail",
         "mkdir -p /home/agent /home/agent/solution /home/agent/dataset /root",
     ]
 
-    for step in spec.build_steps:
-        step_type = step.get("type")
-        if step_type == "file":
-            src = step["source"]
-            dest = step["destination"]
-            commands.extend(
-                [
-                    f"mkdir -p {shlex.quote(str(Path(dest).parent))}",
-                    f"cp -R {shlex.quote(f'{stage_root}/{src}')} {shlex.quote(dest)}",
-                ]
-            )
-        elif step_type == "shell":
-            commands.extend(step.get("commands", []))
+    if os.environ.get("DELTAML_HERMETIC_SMOKE") == "1":
+        commands.append("echo 'Skipping external task assets for hermetic smoke test'")
+    else:
+        for step in spec.build_steps:
+            step_type = step.get("type")
+            if step_type == "file":
+                src = step["source"]
+                dest = step["destination"]
+                commands.extend(
+                    [
+                        f"mkdir -p {shlex.quote(str(Path(dest).parent))}",
+                        f"cp -R {shlex.quote(f'{stage_root}/{src}')} {shlex.quote(dest)}",
+                    ]
+                )
+            elif step_type == "shell":
+                commands.extend(step.get("commands", []))
 
     training_log = spec.task_dir / "assets" / "for_agent" / "training_log_example.json"
     if training_log.exists():
@@ -183,15 +207,40 @@ def setup_script_for_task(spec: TaskSpec) -> str:
         ]
     )
 
+    if policy is not None:
+        commands.extend(
+            [
+                "mkdir -p /root/deltamlbench",
+                f"cp {stage_root}/shared/evaluation.py /root/deltamlbench/evaluation.py",
+                f"cp {stage_root}/shared/scorer_driver.py /root/deltamlbench/scorer_driver.py",
+                f"cp {stage_root}/shared/review_bundle.py /root/deltamlbench/review_bundle.py",
+                f"cp {stage_root}/shared/evaluation_policy.json /root/deltamlbench/evaluation_policy.json",
+                f"cp {stage_root}/shared/report_collector.py /usr/local/bin/deltamlbench_report.py",
+                "chown root:root /usr/local/bin/deltamlbench_report.py",
+                "chmod 755 /usr/local/bin/deltamlbench_report.py",
+                "python3 /root/deltamlbench/review_bundle.py --snapshot-root /home/agent/solution --snapshot-output /root/deltamlbench/baseline_hashes.json",
+                "chmod 600 /root/deltamlbench/baseline_hashes.json",
+                "chmod -R go-rwx /root/deltamlbench",
+                f"rm -rf {stage_root}/shared",
+            ]
+        )
+
+    commands.append("chown -R agent:agent /home/agent")
+
     return "\n".join(commands) + "\n"
 
 
 def task_sample(spec: TaskSpec, variant: VariantSpec):
     from inspect_ai.dataset import Sample
 
+    policy = evaluation_policy(spec.name)
+    instructions = spec.instructions
+    if policy is not None:
+        instructions = f"{instructions}\n\n{format_evaluation_contract(spec.name, policy)}"
+
     return Sample(
         id=f"{spec.name}:{variant.name}",
-        input=spec.instructions,
+        input=instructions,
         target="",
         metadata={
             "task_name": spec.name,
@@ -200,6 +249,7 @@ def task_sample(spec: TaskSpec, variant: VariantSpec):
             "visible_score": variant.visible_score,
             "resource_profile": spec.manifest.get("tasks", {}).get(variant.name, {}).get("resources", {}),
             "manifest_meta": spec.manifest.get("meta", {}),
+            "evaluation_policy": policy,
         },
         files=sample_files_for_task(spec),
         setup=setup_script_for_task(spec),
@@ -220,9 +270,38 @@ def parse_score_output(output: str) -> dict[str, Any]:
     raise ValueError("No JSON score payload found in output")
 
 
-def score_command(visible_score: bool) -> str:
-    flag = "" if visible_score else " --strip_score_information"
-    return f"python3 /home/agent/score.py{flag}"
+def report_command() -> str:
+    return (
+        "cd /home/agent && python3 /usr/local/bin/deltamlbench_report.py"
+        " --solution /home/agent/solution/solution.py"
+        " --output /home/agent/submission/report.json"
+    )
+
+
+def score_command(visible_score: bool, scorer_owned: bool = True) -> str:
+    del scorer_owned  # retained for compatibility with older launch integrations
+    flag = "" if visible_score else " --strip-score-information"
+    return (
+        "python3 /root/deltamlbench/scorer_driver.py"
+        " --policy /root/deltamlbench/evaluation_policy.json"
+        " --report /home/agent/submission/report.json"
+        " --evidence /home/agent/submission/evidence.json"
+        " --workspace /home/agent"
+        " --solution /home/agent/solution/solution.py"
+        f"{flag}"
+    )
+
+
+def review_command(task_name: str) -> str:
+    return (
+        "python3 /root/deltamlbench/review_bundle.py"
+        f" --task-name {shlex.quote(task_name)}"
+        " --workspace /home/agent"
+        " --solution /home/agent/solution/solution.py"
+        " --report /home/agent/submission/report.json"
+        " --evidence /home/agent/submission/evidence.json"
+        " --baseline-manifest /root/deltamlbench/baseline_hashes.json"
+    )
 
 
 def summarize_manifest_meta(spec: TaskSpec) -> dict[str, Any]:

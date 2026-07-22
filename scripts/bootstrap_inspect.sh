@@ -10,11 +10,8 @@ fi
 
 cd "$ROOT_DIR"
 
-if [[ ! -d .inspect-venv ]]; then
-  uv venv .inspect-venv --python 3.12
-fi
-
-uv pip install --python .inspect-venv/bin/python -e .
+DELTAML_ENVIRONMENT="$ROOT_DIR/.inspect-venv"
+UV_PROJECT_ENVIRONMENT="$DELTAML_ENVIRONMENT" uv sync --locked --python 3.12
 
 cat <<EOF
 Inspect environment ready.
@@ -24,6 +21,9 @@ Activate:
 
 List tasks:
   inspect list tasks deltamlbench_inspect/tasks/pwc.py
+
+Check local readiness:
+  ./run_benchmark.sh doctor
 
 Smoke run:
   ./run_benchmark.sh smoke

@@ -6,17 +6,28 @@ from typing import Any
 from inspect_ai.tool import Tool, tool
 from inspect_ai.util import sandbox
 
-from .runtime import parse_score_output, score_command
+from .runtime import parse_score_output, report_command, score_command
 
 
 @tool(name="score_task")
-def score_task(*, visible_score: bool = True) -> Tool:
+def score_task(*, visible_score: bool = True, scorer_owned: bool = False) -> Tool:
     """Run the task scorer inside the sandbox."""
 
     async def execute() -> str:
         """Run the current task scorer and return the parsed score payload."""
+        await sandbox().exec(
+            cmd=["bash", "--login", "-c", report_command()],
+            user="agent",
+            timeout=7200,
+        )
         result = await sandbox().exec(
-            cmd=["bash", "--login", "-c", score_command(visible_score)],
+            cmd=[
+                "bash",
+                "--login",
+                "-c",
+                score_command(visible_score, scorer_owned=scorer_owned),
+            ],
+            user="root",
             timeout=7200,
         )
         output = f"{result.stderr or ''}\n{result.stdout or ''}".strip()

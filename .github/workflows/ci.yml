@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: python -m pip install uv==0.8.13
+      - name: Install locked environment
+        env:
+          UV_PROJECT_ENVIRONMENT: .inspect-venv
+        run: uv sync --locked --python 3.12
+      - name: Validate suite contract
+        run: .inspect-venv/bin/deltamlbench validate --json
+      - name: Run unit tests
+        run: .inspect-venv/bin/python -m unittest discover -s tests -v
+      - name: Check Python sources
+        run: .inspect-venv/bin/python -m compileall -q deltamlbench_inspect metr tests
+      - name: Build wheel and source distribution
+        run: uv build
+      - name: Verify distribution catalog
+        run: .inspect-venv/bin/python scripts/verify_distribution.py dist/*.whl
+      - name: Build sandbox image
+        run: docker build deltamlbench_inspect/sandbox

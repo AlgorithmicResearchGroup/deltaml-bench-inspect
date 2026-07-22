@@ -25,6 +25,8 @@ from inspect_ai.solver._task_state import state_jsonable
 from inspect_ai.tool import ToolCall
 from inspect_ai.util import sandbox
 
+from deltamlbench_inspect.runtime import report_command, score_command
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODULAR_PUBLIC_ROOT = REPO_ROOT / "modular-public"
 def _maybe_parse_json(raw: object) -> object:
@@ -214,8 +216,21 @@ class _ModularPublicInProcessBackend:
         raise self.inspect_runtime.SubmitRequested(self.submission)
 
     async def score(self):
+        scorer_owned = bool(self.task_state.metadata.get("evaluation_policy"))
+        visible_score = bool(self.task_state.metadata.get("visible_score", False))
+        await sandbox().exec(
+            cmd=["bash", "--login", "-c", report_command()],
+            user="agent",
+            timeout=7200,
+        )
         result = await sandbox().exec(
-            cmd=["bash", "--login", "-c", "python3 /home/agent/score.py"],
+            cmd=[
+                "bash",
+                "--login",
+                "-c",
+                score_command(visible_score, scorer_owned=scorer_owned),
+            ],
+            user="root",
             timeout=7200,
         )
         payload = self.inspect_runtime.Hooks()._parse_score_output(
@@ -247,6 +262,7 @@ class _ModularPublicInProcessBackend:
         result = await sandbox().exec(
             cmd=["bash", "--login", "-c", script],
             cwd="/home/agent",
+            user="agent",
             timeout=int(timeout),
         )
         return json.dumps(
@@ -261,6 +277,7 @@ class _ModularPublicInProcessBackend:
         result = await sandbox().exec(
             cmd=["python3", "-c", script],
             cwd="/home/agent",
+            user="agent",
             timeout=int(timeout),
         )
         output = result.stdout or ""
@@ -272,6 +289,34 @@ class _ModularPublicInProcessBackend:
 def baseline_submit():
     async def solve(state: TaskState, generate: Generate) -> TaskState:
         del generate
+        smoke_setup = r"""
+import json
+from pathlib import Path
+solution = Path('/home/agent/solution/solution.py')
+solution.parent.mkdir(parents=True, exist_ok=True)
+solution.write_text(
+    "import json\nfrom pathlib import Path\n\ndef evaluate():\n"
+    "    record = json.loads(Path('/home/agent/solution/training_log.json').read_text())\n"
+    "    return {\n"
+    "        'metrics': {'rouge_l': record['final_metrics']['rouge_l']},\n"
+    "        'measurements': {\n"
+    "            'fixed_inference_budget': 'hermetic-smoke',\n"
+    "            'pinned_generation_model': 'hermetic-smoke',\n"
+    "        },\n"
+    "    }\n",
+    encoding='utf-8',
+)
+log = Path('/home/agent/solution/training_log.json')
+log.write_text(json.dumps({'final_metrics': {'rouge_l': 27.4}}), encoding='utf-8')
+submission = Path('/home/agent/submission')
+submission.mkdir(parents=True, exist_ok=True)
+(submission / 'evidence.json').write_text(json.dumps({
+    'version': 1,
+    'final_metrics': {'rouge_l': 27.4},
+    'artifacts': ['solution/solution.py', 'solution/training_log.json'],
+}), encoding='utf-8')
+"""
+        await sandbox().exec(cmd=["python3", "-c", smoke_setup], user="agent", timeout=60)
         state.output = ModelOutput.from_content("baseline", "baseline")
         state.completed = True
         return state

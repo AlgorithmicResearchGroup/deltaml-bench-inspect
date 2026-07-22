@@ -2,20 +2,39 @@
 name = "deltamlbench-inspect"
 version = "0.1.0"
 description = "Inspect-native runtime for DeltaMLBench PWC tasks"
+readme = "README.md"
+license = "Apache-2.0"
 requires-python = ">=3.11,<3.13"
 dependencies = [
   "aiohttp>=3.9",
   "anthropic>=0.62",
   "google-genai>=1.27",
+  "huggingface-hub>=1.7,<2",
   "inspect_ai>=0.3.121,<0.4",
   "openai>=1.99",
   "pyyaml>=6.0",
   "tiktoken>=0.7",
 ]
 
+[project.scripts]
+deltamlbench = "deltamlbench_inspect.cli:main"
+
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["deltamlbench_inspect", "deltamlbench_inspect.tasks", "metr"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["deltamlbench_inspect*", "deltamlbench", "deltamlbench.pwc_*", "metr*"]
+exclude = [
+  "deltamlbench.pwc_fb15k_237_dabr*",
+  "deltamlbench.pwc_food_101_mano_tiny*",
+  "deltamlbench.pwc_hme100k_ical*",
+  "deltamlbench.pwc_imagenet_10_dpac*",
+  "deltamlbench.pwc_istd_rasm*",
+]
+
+[tool.setuptools.package-data]
+deltamlbench_inspect = ["evaluation_policies.yaml", "sandbox/*"]

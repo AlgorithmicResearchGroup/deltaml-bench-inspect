@@ -4,8 +4,8 @@ This directory contains the source task families used by the Inspect-native Delt
 
 ## Current Status
 
-- `pwc_*` families are the supported benchmark surface.
-- The Inspect runtime discovers the complete `pwc_*` families automatically and exposes `main` and `hidden_score` variants.
+- The 35 active `pwc_*` families are the supported benchmark surface.
+- The Inspect runtime discovers the active, complete `pwc_*` families automatically and exposes `main` and `hidden_score` variants.
 - `ai_rd_*` families remain in the repo as source material but are not part of the supported Inspect workflow.
 
 ## Task Layout
@@ -25,7 +25,7 @@ The Inspect runtime reuses the existing task assets, setup commands, and scoring
 
 ## Running Tasks
 
-Use the repo root workflow from [README.md](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/README.md):
+Use the repo root workflow from [README.md](../README.md):
 
 ```bash
 ./scripts/bootstrap_inspect.sh

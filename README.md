@@ -1,13 +1,27 @@
 # DeltaMLBench (Inspect)
 
-DeltaMLBench is an Inspect-native benchmark for the complete `pwc_*` task families in [`deltamlbench/`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/deltamlbench). This branch is the Inspect runtime branch and is intended to become the standalone `deltaml-bench-inspect` repo.
+DeltaMLBench is an Inspect-native benchmark for the active `pwc_*` task families in [`deltamlbench/`](deltamlbench/).
 
 ## Supported Scope
 
 - Supported runtime: Inspect
-- Supported benchmark families: 49 complete `pwc_*` families, exposed as 98 task variants (`main` and `hidden_score`)
-- Archived from the Inspect runtime: `pwc_fb15k_237_dabr`, `pwc_food_101_mano_tiny`, `pwc_hme100k_ical`, `pwc_imagenet_10_dpac`, `pwc_istd_rasm`
+- Supported benchmark families: 35 `pwc_*` families, exposed as 70 task variants (`main` and `hidden_score`)
+- Archived from the Inspect runtime: five incomplete imports and fourteen tasks removed for insufficient headroom or redundant coverage; see [`archive/README.md`](archive/README.md) and [`docs/TASK_SUITABILITY_AUDIT.md`](docs/TASK_SUITABILITY_AUDIT.md)
 - Not supported by the new runtime: `ai_rd_*`
+
+## Evaluation Model
+
+Agents compute and report task metrics through `solution.evaluate()`. The
+runtime executes that code as the unprivileged agent, audits the reported values
+against code and declared logs, submits a redacted code-and-trajectory bundle to
+the configured integrity judge, and only then accepts the paper comparison.
+Hidden variants suppress feedback rather than using separate hidden labels. See
+[`docs/SCORER_PROTOCOL.md`](docs/SCORER_PROTOCOL.md).
+
+Task papers, repository snapshots, and datasets are fetched from the public
+[`AlgorithmicResearchGroup/dmlb`](https://huggingface.co/buckets/AlgorithmicResearchGroup/dmlb)
+Hugging Face storage bucket. `deltamlbench doctor` verifies every object declared
+by the active task manifests before a run is launched.
 
 ## Prerequisites
 
@@ -33,7 +47,14 @@ DeltaMLBench is an Inspect-native benchmark for the complete `pwc_*` task famili
 ./run_benchmark.sh list
 ```
 
-3. Run a no-model smoke test that validates task import, Docker sandboxing, setup, and scoring.
+3. Check the suite contract and local runtime before launching work.
+
+```bash
+./run_benchmark.sh validate
+./run_benchmark.sh doctor
+```
+
+4. Run a no-model smoke test that validates task import, Docker sandboxing, setup, and scoring.
 
 ```bash
 .inspect-venv/bin/inspect eval \
@@ -43,10 +64,11 @@ DeltaMLBench is an Inspect-native benchmark for the complete `pwc_*` task famili
   --no-sandbox-cleanup
 ```
 
-4. Run a real `modular-public` task.
+5. Run a real `modular-public` task.
 
 ```bash
 export ANTHROPIC_API_KEY=...
+export DELTAML_JUDGE_MODEL=anthropic/<judge-model>
 export MODULAR_PUBLIC_SETTINGS_PACK=t_context_and_usage_awarep_claude_legacy_1xc3.5sgda
 export MODULAR_PUBLIC_ANTHROPIC_MODEL=claude-sonnet-4-6
 ./run_benchmark.sh run pwc_cnn_main anthropic/claude-sonnet-4-6
@@ -61,13 +83,15 @@ inspect view start --host 127.0.0.1 --port 7575 --log-dir .inspect-logs
 
 ## Repo Layout
 
-- [`deltamlbench/`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/deltamlbench): source task families and assets
-- [`deltamlbench_inspect/`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/deltamlbench_inspect): Inspect-native runtime, scorers, task wrappers, sandbox image, and the real `modular-public` solver integration
-- [`metr/`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/metr): compatibility shim for legacy task/scoring imports
-- [`run_benchmark.sh`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/run_benchmark.sh): simple launcher for listing and running Inspect tasks
-- [`scripts/bootstrap_inspect.sh`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/scripts/bootstrap_inspect.sh): first-run local setup
+- [`deltamlbench/`](deltamlbench/): source task families and assets
+- [`deltamlbench_inspect/`](deltamlbench_inspect/): Inspect-native runtime, policies, scorers, task wrappers, sandbox image, and the `modular-public` solver integration
+- [`metr/`](metr/): compatibility shim for legacy task/scoring imports
+- [`run_benchmark.sh`](run_benchmark.sh): simple launcher for listing and running Inspect tasks
+- [`scripts/bootstrap_inspect.sh`](scripts/bootstrap_inspect.sh): first-run local setup
+- [`docs/SCORER_PROTOCOL.md`](docs/SCORER_PROTOCOL.md): scorer-owned submission, trust-boundary, aggregation, and migration contract
+- [`docs/PRODUCTION_READINESS.md`](docs/PRODUCTION_READINESS.md): release gates, operational checks, and current blockers
 
-Use [`deltamlbench/README.md`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/deltamlbench/README.md) for task-source documentation. The root README is the only user-facing quickstart for running the benchmark.
+Use [`deltamlbench/README.md`](deltamlbench/README.md) for task-source documentation. The root README is the only user-facing quickstart for running the benchmark.
 
 ## Notes
 
@@ -75,7 +99,7 @@ Use [`deltamlbench/README.md`](/Users/arg/Desktop/PUBLIC/deltaml-bench-public/de
 - `hidden_score` variants run the same scorer but do not expose intermediate score feedback.
 - Most PWC tasks still require substantial compute and may require GPUs to be practical; the smoke solver is intended only to validate the runtime path.
 - The supported agent in this branch is `modular-public`.
-- The new runtime keeps the existing `assets/score.py`, `anti_cheat_validation`, and task setup logic rather than rewriting each task by hand.
+- The runtime preserves legacy score scripts for task context, while the shared scorer validates agent-reported metrics and applies the authoritative paper-baseline policies.
 
 ## Troubleshooting
 

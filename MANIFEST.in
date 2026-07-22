@@ -1,0 +1,9 @@
+recursive-include deltamlbench/pwc_* *.json *.md *.py *.txt *.yaml
+prune deltamlbench/pwc_fb15k_237_dabr
+prune deltamlbench/pwc_food_101_mano_tiny
+prune deltamlbench/pwc_hme100k_ical
+prune deltamlbench/pwc_imagenet_10_dpac
+prune deltamlbench/pwc_istd_rasm
+recursive-include deltamlbench_inspect *.yaml
+recursive-include deltamlbench_inspect/sandbox Dockerfile *.yaml
+global-exclude *.py[cod]
