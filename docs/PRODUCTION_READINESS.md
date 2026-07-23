@@ -22,6 +22,9 @@ A release candidate must satisfy all of the following:
    evidence audit, and paper comparison on the target hardware class.
 6. Hidden-score runs are checked for leakage, and scorer failures remain
    fail-closed.
+7. Agent Bridge transcript capture and the host-side durable audit journal are
+   validated for success, exception, cancellation, and configured usage-limit
+   termination.
 
 Policy status records task-design maturity; it does not replace the integrity
 gate. Scores are accepted only when the individual run's code-and-evidence audit

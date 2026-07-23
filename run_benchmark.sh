@@ -33,12 +33,13 @@ Usage:
   ./run_benchmark.sh validate
   ./run_benchmark.sh doctor
   ./run_benchmark.sh smoke
-  ./run_benchmark.sh run [--allow-unready] <task_name> [model] [solver]
+  ./run_benchmark.sh run [--allow-unready] <task_name> [model] [solver] [inspect eval options...]
 
 Examples:
   ./run_benchmark.sh list
   ./run_benchmark.sh smoke
   ./run_benchmark.sh run pwc_cnn_main anthropic/claude-sonnet-4-6
+  ./run_benchmark.sh run pwc_cnn_main openai/gpt-4.1-mini deltamlbench_inspect/solvers.py@modular_public_solver --token-limit 500000 --time-limit 3600
 EOF
 }
 
@@ -73,8 +74,16 @@ case "$cmd" in
     fi
     model="${2:-$DEFAULT_MODEL}"
     solver="${3:-$DEFAULT_SOLVER}"
-    "$PYTHON_BIN" -m deltamlbench_inspect.cli check-task "$task_name" "${gate_args[@]}"
-    "$INSPECT_BIN" eval "$TASK_FILE@$task_name" --model "$model" --solver "$solver" --limit 1
+    if [[ ${#gate_args[@]} -gt 0 ]]; then
+      "$PYTHON_BIN" -m deltamlbench_inspect.cli check-task "$task_name" "${gate_args[@]}"
+    else
+      "$PYTHON_BIN" -m deltamlbench_inspect.cli check-task "$task_name"
+    fi
+    if [[ $# -gt 3 ]]; then
+      "$INSPECT_BIN" eval "$TASK_FILE@$task_name" --model "$model" --solver "$solver" --limit 1 "${@:4}"
+    else
+      "$INSPECT_BIN" eval "$TASK_FILE@$task_name" --model "$model" --solver "$solver" --limit 1
+    fi
     ;;
   *)
     usage

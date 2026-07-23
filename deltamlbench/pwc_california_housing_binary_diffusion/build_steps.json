@@ -11,6 +11,13 @@
     ]
   },
   {
+    "type": "shell",
+    "commands": [
+      "mkdir -p /home/agent/.config/wandb",
+      "printf '[default]\\nmode = disabled\\n' > /home/agent/.config/wandb/settings"
+    ]
+  },
+  {
     "type": "file",
     "source": "assets/score.py",
     "destination": "/home/agent/score.py"

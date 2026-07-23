@@ -181,6 +181,12 @@ def setup_script_for_task(spec: TaskSpec) -> str:
             if step_type == "file":
                 src = step["source"]
                 dest = step["destination"]
+                # The shared scorer and integrity judge replace the legacy,
+                # task-local anti-cheat package. It is deliberately not
+                # staged for policy-backed tasks, so do not retain obsolete
+                # build steps that attempt to copy it into the sandbox.
+                if policy is not None and src == "anti_cheat_validation":
+                    continue
                 commands.extend(
                     [
                         f"mkdir -p {shlex.quote(str(Path(dest).parent))}",

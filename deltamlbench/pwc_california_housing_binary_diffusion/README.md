@@ -93,6 +93,9 @@ Bonus points for:
 ## Implementation Notes
 
 - The task uses the original binary-diffusion-tabular codebase as a starting point
+- Weights & Biases is disabled in the task environment. The upstream trainer calls
+  `wandb.init()` when no logger is supplied, but benchmark runs must not require
+  external telemetry credentials.
 - Agents have full internet access to research improvements
 - Training is limited to 1 hour to ensure reasonable resource usage
 - The scoring system automatically detects and evaluates improvements

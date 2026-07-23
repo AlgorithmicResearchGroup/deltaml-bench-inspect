@@ -99,6 +99,39 @@ external task assets alone does not bypass the judge.
 The legacy per-task LLM grader files are neither staged nor executed; the shared
 host-side judge is the only model-review path.
 
+## Failure-independent agent audit
+
+`modular-public` model requests use Inspect Agent Bridge. The bridge routes the
+agent's OpenAI-compatible SDK calls through the active Inspect model and records
+them in the normal Inspect transcript. The adapter converts the scaffold's
+legacy `function_call`/`function` messages to modern `tool_calls`/`tool`
+messages before they reach the bridge.
+
+Inspect sample logs remain authoritative for completed samples. In addition,
+the adapter writes an append-only journal to `logs/audit/<sample-uuid>/` while a
+sample is running so evidence does not depend on successful sample finalization.
+The directory contains:
+
+- `events.jsonl`: flushed model, tool, action, observation, score, submission,
+  checkpoint, error, and terminal-status events;
+- `payloads/`: compressed full payloads for events too large to store inline;
+- `state/latest.json.gz`: the most recent modular-public state checkpoint; and
+- `workspace/`: content-addressed copies and manifests for changed files under
+  `/home/agent/solution`.
+
+The journal is written on the host rather than inside the Docker sandbox. It
+therefore survives solver exceptions, token or time limits, cancellation, and
+normal sandbox cleanup. `status.json` records the terminal state when Python is
+able to execute cancellation cleanup. A hard process or machine failure may
+omit that final status, but every event flushed before the failure remains.
+
+Set `DELTAML_AUDIT_DIR` to relocate the audit root. Workspace snapshots capture
+individual files smaller than 5 MiB and at most 25 MiB of changed content per
+checkpoint by default; set `DELTAML_AUDIT_SNAPSHOT_MAX_BYTES` to change the
+per-checkpoint total. Larger files are excluded from failure-time workspace
+snapshots; declared final artifacts are still inventoried and hashed by the
+normal scorer when a sample reaches scoring.
+
 ## Paper comparison
 
 [`evaluation_policies.yaml`](../deltamlbench_inspect/evaluation_policies.yaml)

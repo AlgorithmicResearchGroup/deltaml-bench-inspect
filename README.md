@@ -74,6 +74,22 @@ export MODULAR_PUBLIC_ANTHROPIC_MODEL=claude-sonnet-4-6
 ./run_benchmark.sh run pwc_cnn_main anthropic/claude-sonnet-4-6
 ```
 
+Pass Inspect limits after the optional solver argument for bounded runs:
+
+```bash
+./run_benchmark.sh run \
+  pwc_cnn_main \
+  openai/gpt-4.1-mini \
+  deltamlbench_inspect/solvers.py@modular_public_solver \
+  --token-limit 500000 \
+  --time-limit 3600
+```
+
+Model calls from `modular-public` are routed through Inspect Agent Bridge, so
+they use the evaluation model and appear in the standard Inspect transcript.
+The adapter also writes failure-independent audit artifacts under
+`logs/audit/<sample-uuid>/`; see [`docs/SCORER_PROTOCOL.md`](docs/SCORER_PROTOCOL.md).
+
 Inspect log viewer:
 
 ```bash

@@ -112,9 +112,20 @@ class EvaluationPolicyTests(unittest.TestCase):
         self.assertIn("chmod -R go-rwx /root/deltamlbench", setup)
         self.assertIn("/root/deltamlbench/review_bundle.py", setup)
         self.assertIn("baseline_hashes.json", setup)
+        self.assertNotIn("cp -R /tmp/deltamlbench_assets/anti_cheat_validation", setup)
         self.assertIn("--task-name pwc_cnn", review_command("pwc_cnn"))
         staged = sample_files_for_task(spec)
         self.assertFalse(any("anti_cheat_validation" in path for path in staged))
+
+    def test_california_housing_disables_wandb_authentication(self) -> None:
+        spec = next(
+            spec
+            for spec in discover_pwc_specs()
+            if spec.name == "pwc_california_housing_binary_diffusion"
+        )
+        setup = setup_script_for_task(spec)
+        self.assertIn("/home/agent/.config/wandb/settings", setup)
+        self.assertIn("mode = disabled", setup)
 
     def test_active_tasks_use_canonical_hugging_face_bucket(self) -> None:
         specs = discover_pwc_specs()

@@ -63,6 +63,52 @@ def _read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _message_payload(message: OpenaiChatMessage | dict[str, Any]) -> dict[str, Any]:
+    """Normalize messages emitted by both legacy and Pydantic-based modules."""
+    return OpenaiChatMessage.model_validate(message).model_dump(exclude_none=True)
+
+
+def _bridge_compatible_openai_messages(
+    messages: list[OpenaiChatMessage] | list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Translate legacy function messages to the modern tool-call wire format."""
+    converted: list[dict[str, Any]] = []
+    pending_tool_call_id: str | None = None
+    for index, raw_message in enumerate(messages):
+        message = _message_payload(raw_message)
+        role = message.get("role")
+        function_call = message.pop("function_call", None)
+        if role == "assistant" and isinstance(function_call, dict):
+            pending_tool_call_id = f"modular_tool_{index}"
+            converted.append(
+                {
+                    **message,
+                    "tool_calls": [
+                        {
+                            "id": pending_tool_call_id,
+                            "type": "function",
+                            "function": {
+                                "name": str(function_call.get("name", "tool")),
+                                "arguments": str(function_call.get("arguments", "{}")),
+                            },
+                        }
+                    ],
+                }
+            )
+        elif role == "function":
+            converted.append(
+                {
+                    "role": "tool",
+                    "content": message.get("content", ""),
+                    "tool_call_id": pending_tool_call_id or f"modular_tool_{index}",
+                }
+            )
+            pending_tool_call_id = None
+        else:
+            converted.append(message)
+    return converted
+
+
 def _append_jsonl(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
@@ -367,21 +413,37 @@ class Hooks(BaseModel):
             raise ValueError("messages are required")
 
         normalized_model = _normalize_model_name(settings.model)
-        if "anthropic" in normalized_model:
-            result = await self._generate_anthropic(
-                model=normalized_model,
-                settings=settings,
-                messages=messages,
-                session=session,
+        if backend is not None and hasattr(backend, "model_request"):
+            backend.model_request(
+                {
+                    "model": normalized_model,
+                    "settings": settings.model_dump(),
+                    "messages": [_message_payload(message) for message in messages],
+                    "functions": functions or [],
+                }
             )
-        else:
-            result = await self._generate_openai(
-                model=normalized_model,
-                settings=settings,
-                messages=messages,
-                functions=functions,
-                session=session,
-            )
+        try:
+            if "anthropic" in normalized_model:
+                result = await self._generate_anthropic(
+                    model=normalized_model,
+                    settings=settings,
+                    messages=messages,
+                    session=session,
+                )
+            else:
+                result = await self._generate_openai(
+                    model=normalized_model,
+                    settings=settings,
+                    messages=messages,
+                    functions=functions,
+                    session=session,
+                )
+        except BaseException as error:
+            if backend is not None and hasattr(backend, "model_error"):
+                backend.model_error(error)
+            raise
+        if backend is not None and hasattr(backend, "model_response"):
+            backend.model_response(result.model_dump(exclude_none=True))
 
         usage = result.usage or {}
         self._token_usage += int(usage.get("total_tokens", 0))
@@ -433,7 +495,7 @@ class Hooks(BaseModel):
         client = AsyncOpenAI(**client_kwargs)
         payload: dict[str, Any] = {
             "model": model,
-            "messages": [message.model_dump(exclude_none=True) for message in messages],
+            "messages": _bridge_compatible_openai_messages(messages),
             "n": settings.n,
         }
         if model.split("/")[-1].startswith(("o1", "o3")):
@@ -490,6 +552,7 @@ class Hooks(BaseModel):
         converted_messages: list[dict[str, Any]] = []
         system_prompt: str | None = None
         for message in messages:
+            message = OpenaiChatMessage.model_validate(message)
             if message.role == "system":
                 system_prompt = str(message.content)
             else:
